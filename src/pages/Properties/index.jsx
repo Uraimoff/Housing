@@ -1,8 +1,9 @@
 import React from 'react'
+import Propertys from '../../components/Properties'
 
 function Properties() {
   return (
-    <div>Properties</div>
+    <div><Propertys/></div>
   )
 }
 

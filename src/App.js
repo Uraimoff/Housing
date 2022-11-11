@@ -1,6 +1,6 @@
 import './App.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import { navbar } from './utils/navbar';
 import Navbar from './components/Navbar';
 
@@ -10,9 +10,9 @@ function App() {
     <Routes>
       <Route element={<Navbar/>}>
       {
-        navbar.map((value)=>(
+        navbar.map((value, index)=>(
           <>
-          <Route key={value.id} path={value.path} element={value.element}/>
+          <Route key={index} path={value.path} element={value.element}/>
           </>
         ))
       }

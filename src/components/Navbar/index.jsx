@@ -9,11 +9,11 @@ function Navbar() {
   return (
     <Container>
       <Wrapper>
-        <Section onClick={()=>navigate("./")}><Logo src={LogoIMG}/><h3>Houzing</h3></Section>
+        <Section onClick={()=>navigate("./home")}><Logo src={LogoIMG}/><h3>Houzing</h3></Section>
         <Section>
             {
-                navbar.map((value)=>(
-                    <Link className={({isActive})=>isActive && 'active'} key={value.id} to={value.path}>{value.title}</Link>
+                navbar.map((value, index)=>(
+                    <Link key={index} className={({isActive})=>isActive && 'active'} to={value.path}>{value.title}</Link>
                 ))
             }
         </Section>

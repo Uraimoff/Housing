@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from './style'
 
-function index() {
+function Homec() {
   return (
-    <Container>index</Container>
+    <Container>Home</Container>
   )
 }
 
-export default index
+export default Homec
