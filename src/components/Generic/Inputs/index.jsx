@@ -10,7 +10,7 @@ function Inputs({ width, height, border, background, placeholder, onChange, name
         onChange={onChange}
         name={name}
         style={{
-          width: width ? `${width}px` : `200px`,
+          width: width ? `${width}px` : `100%`,
           height: height ? `${height}px` : `44px`,
           background: background ? `${background}` : "none",
           paddingLeft: background ? `30px` : "15px",
