@@ -3,7 +3,19 @@ import styled from "styled-components";
 
 const Container=styled.div`
 display: flex;
+width: 100%;
 flex-direction: column;
+justify-content: center;
+`
+const Main=styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+background: var(--colorPrimary);
+`
+const Main2=styled.div`
+width: 100%;
+display: flex;
 justify-content: center;
 `
 const Wrapper=styled.div`
@@ -14,6 +26,7 @@ max-width: 1440px;
 height: 64px;
 display: flex;
 align-items: center;
+width: 100%;
 justify-content: space-between;
 
 
@@ -26,10 +39,10 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 cursor: pointer;
-
-.active{
-    color: #f5f7da;
-}
+`
+const H3 = styled.h3`
+color: white;
+margin-bottom: 0;
 `
 const Logo =styled.img`
 margin-right: 12px;
@@ -55,4 +68,4 @@ text-decoration:none;
 }
 `
 
-export {Container,Wrapper, Section, Logo, Link}
+export {Container,Wrapper, Section, Logo, Link, H3, Main, Main2}

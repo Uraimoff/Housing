@@ -13,5 +13,14 @@ line-height: 20px;
     outline: none;
 }
 `
+const Wrapper=styled.div`
+display: flex;
+position: relative;
+`
+const Icon=styled.img`
+position: absolute;
+top: 14px;
+left: 5px;
+`
 
-export {Inpt}
+export {Inpt, Wrapper, Icon}

@@ -5,8 +5,9 @@ import { Btn, Icon } from "./style";
 function Buttons({ txt, img, height, width, color, border, background, onClick }) {
   return (
     <>
-      <Btn onClick={onClick}
-        style={{
+      <Btn  onClick={onClick}
+      style={{
+          gap: img ? `8px`: "0",
           height: height ? `${height}px` : `44px`,
           width: width ? `${width}px` : `128px`,
           color: color ? `${color}` : `inherit`,
