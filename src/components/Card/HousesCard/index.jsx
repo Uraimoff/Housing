@@ -2,12 +2,12 @@ import React from 'react'
 import "./style.css"
 // import House from "./../../assets/img/PHouse1.jpg"
 // import avatar from "./../../assets/img/avatar.jpg"
-import Like from "./../../assets/icons/svg/Like.svg"
-import resize from "./../../assets/icons/svg/resize.svg"
-import bath from "./../../assets/icons/svg/bath.svg"
-import ruler from "./../../assets/icons/svg/ruler.svg"
-import car from "./../../assets/icons/svg/car.svg"
-import bed from "./../../assets/icons/svg/bed.svg"
+import Like from "./../../../assets/icons/svg/Like.svg"
+import resize from "./../../../assets/icons/svg/resize.svg"
+import bath from "./../../../assets/icons/svg/bath.svg"
+import ruler from "./../../../assets/icons/svg/ruler.svg"
+import car from "./../../../assets/icons/svg/car.svg"
+import bed from "./../../../assets/icons/svg/bed.svg"
 import { Container } from './style'
 
 

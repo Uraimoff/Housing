@@ -1,0 +1,36 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 280px;
+    height: 350px;
+    background: #000;
+}
+.imgc{
+    opacity: 0.6;
+    transition: 0.5s;
+}
+.imgc:hover{
+    opacity: 1;
+}
+.wrapper div{
+    position: absolute;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.wrapper div p{
+    color: white;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 28px;
+}
+.iconc{
+    height: 60px;
+}

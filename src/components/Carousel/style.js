@@ -6,14 +6,8 @@ background: #000;
 display: flex;
 justify-content: center;
 flex-direction: column;
-/* align-items: center; */
 `
 const Content =styled.div`
-/* 
-background-repeat: no-repeat;
-background-position: 50% 50%;
-background-size: cover; */
-/* background-image: url(./../../assets/img/house1.png); */
 
 height: fit-content;
 overflow: hidden;
@@ -52,7 +46,7 @@ align-items: center;
 const Contents =styled.div`
 position: absolute;
 width: 1440px;
-top: 300px;
+top: 240px;
 display: flex;
 align-items: center;
 justify-content: space-between;
