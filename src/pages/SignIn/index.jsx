@@ -2,7 +2,7 @@ import React from 'react'
 
 function SingIn() {
   return (
-    <div>SingIn</div>
+    <h1>Login in process...</h1>
   )
 }
 

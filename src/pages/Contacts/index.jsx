@@ -3,7 +3,7 @@ import React from 'react'
 function Contacts() {
   return (
     <>
-    <div>Contacts</div>
+    <h1>Contacts in process...</h1>
     </>
   )
 }

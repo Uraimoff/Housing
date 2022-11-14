@@ -3,7 +3,7 @@ import { Container } from './style'
 
 function Propertys() {
   return (
-    <Container>Properties</Container>
+    <Container>Properties in process...</Container>
   )
 }
 

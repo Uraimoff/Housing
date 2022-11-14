@@ -3,7 +3,7 @@ import Propertys from '../../components/Properties'
 
 function Properties() {
   return (
-    <div><Propertys/></div>
+    <h1><Propertys/></h1>
   )
 }
 
