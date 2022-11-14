@@ -5,7 +5,6 @@ import LogoIMG from "./../../assets/icons/svg/Logo.svg";
 import { navbar } from "../../utils/navbar";
 import { Buttons } from "../Generic";
 import Filter from "../Filter";
-// import loupe from "./../../assets/icons/svg/loupeWhite.svg"
 
 function Navbar() {
   const navigate = useNavigate();
