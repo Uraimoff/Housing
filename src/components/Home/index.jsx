@@ -31,6 +31,15 @@ function Homec() {
         console.log(res);
       });
   }, [url]);
+  // useEffect(() => {
+  //   fetch(`${url}/categories/list`)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setData(res?.data  || []);
+  //       console.log(res);
+  //     });
+  // }, [url]);
+
   const chose = [
     {
       img: trusted,
@@ -95,6 +104,7 @@ function Homec() {
         />
         <Wrapper>
           <PropertyCarousel
+          slideToShow={"four"}
             slideContent={categorydata.map((value) => (
               <CategoryCard
                 img={value.img}

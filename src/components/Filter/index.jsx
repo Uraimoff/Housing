@@ -137,7 +137,7 @@ function Filter() {
         />
         <Dropdown
           trigger={["click"]}
-          overlay={menu}
+          dropdownRender={menu}
           placement="bottomRight"
           arrow
         >
