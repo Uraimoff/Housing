@@ -16,7 +16,7 @@ const Propertys = () => {
       .then((res) => {
         setData(res?.data  || []);
       });
-  }, [search]);
+  }, [url, search]);
   return (
     <>
         <Text
