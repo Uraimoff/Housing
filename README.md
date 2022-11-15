@@ -2,7 +2,7 @@
 
 This project is available on github [Housing](https://github.com/Uraimoff/Housing.git).
 
-#u can see the DEMO [Housing](url)
+#u can see the DEMO [Housing](https://housing-uraimoff.netlify.app)
 
 ## Available Scripts
 

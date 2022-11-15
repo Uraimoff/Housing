@@ -135,3 +135,9 @@ line-height: 13px;
     top: -200px;
     right: 10px;
 }
+
+.inline{
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}

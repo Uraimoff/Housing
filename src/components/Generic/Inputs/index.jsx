@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, Inpt, Wrapper } from "./style";
 // import loupe from "./../../../assets/icons/svg/loupeWhite.svg";
 
-function Inputs({ width, height, border, placeholder, onChange, name, icon }) {
+function Inputs({ width, height, border, placeholder, onChange, name, icon, defaultValue }) {
   return (
     <>
     <Wrapper style={{
@@ -13,6 +13,7 @@ function Inputs({ width, height, border, placeholder, onChange, name, icon }) {
       icon={icon}
         placeholder={placeholder}
         onChange={onChange}
+        defaultValue={defaultValue}
         name={name}
         style={{
           width: width ? `${width}px` : `100%`,

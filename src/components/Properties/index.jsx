@@ -1,10 +1,40 @@
-import React from 'react'
-import { Container } from './style'
+import React, { useEffect, useState } from "react";
+import { Container } from "./style";
+import HousesCard from "./../Card/HousesCard";
+import Text from "../Carousel/Text";
+import {Wrapper} from "./../Home/style.js"
+import { useLocation } from "react-router-dom";
 
-function Propertys() {
+const Propertys = () => {
+  const [data, setData] = useState([]);
+  const {search} = useLocation()
+
+  const { REACT_APP_BASE_URL: url } = process.env;
+  useEffect(() => {
+    fetch(`${url}/houses/list${search}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res?.data  || []);
+      });
+  }, [search]);
   return (
-    <Container>Properties in process...</Container>
-  )
-}
+    <>
+        <Text
+          theme={"Properties"}
+          txt={
+            "Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."
+          }
+        />
+        <Wrapper>
 
-export default Propertys
+      <Container>
+        {data.map((value) => (
+          <HousesCard data={value}/>
+          ))}
+      </Container>
+          </Wrapper>
+    </>
+  );
+};
+
+export default Propertys;
