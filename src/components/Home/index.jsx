@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Carousell from "../Carousel";
 import PropertyCarousel from "../Carousel/PropertyCarousel";
 import Text from "../Carousel/Text";
@@ -20,6 +20,17 @@ import ReadMore from "../Card/More";
 import TestimonialCard from "../Card/TestimonialCard";
 
 function Homec() {
+  const [data, setData] = useState([]);
+
+  const { REACT_APP_BASE_URL: url } = process.env;
+  useEffect(() => {
+    fetch(`${url}/houses/list`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res?.data  || []);
+        console.log(res);
+      });
+  }, [url]);
   const chose = [
     {
       img: trusted,
@@ -55,18 +66,9 @@ function Homec() {
       </div>
       <Wrapper>
         <PropertyCarousel
-          slideContent={property.map((value) => (
+          slideContent={data.map((value) => (
             <HousesCard
-              houseIMG={value.houseimg}
-              avatar={value.avatar}
-              name={value.name}
-              address={value.address}
-              beds={value.beds}
-              baths={value.baths}
-              garages={value.garages}
-              squares={value.squares}
-              noPrice={value.noprice}
-              price={value.price}
+              data={value}
             />
           ))}
         />
@@ -116,18 +118,9 @@ function Homec() {
       </div>
       <Wrapper>
         <PropertyCarousel
-          slideContent={property.map((value) => (
+          slideContent={data.map((value) => (
             <HousesCard
-              houseIMG={value.houseimg}
-              avatar={value.avatar}
-              name={value.name}
-              address={value.address}
-              beds={value.beds}
-              baths={value.baths}
-              garages={value.garages}
-              squares={value.squares}
-              noPrice={value.noprice}
-              price={value.price}
+              data={value}
             />
           ))}
         />

@@ -1,18 +1,20 @@
+import React from "react";
 import useId from "../hooks/useId";
 import Contacts from "../pages/Contacts";
 import SingIn from "../pages/SignIn";
-import Home from "./../pages/Home";
-import Properties from "./../pages/Properties";
 import home from "./../assets/icons/svg/home.svg"
 import apartment from "./../assets/icons/svg/apartment.svg"
 import office from "./../assets/icons/svg/office.svg"
 import villa from "./../assets/icons/svg/villa.svg"
 import category from "./../assets/img/category.png"
+// import Properties from "./../pages/Properties";
+const Home = React.lazy(()=>import("./../pages/Home"));
+const Properties = React.lazy(()=>import("./../pages/Properties"));
 
 export const navbar = [
   {
     id: useId,
-    element: <Home />,
+    element: <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}><Home /></React.Suspense>,
     title: "Home",
     path: "/home",
     private: false,
@@ -20,7 +22,7 @@ export const navbar = [
   },
   {
     id: useId,
-    element: <Properties />,
+    element: <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}><Properties /></React.Suspense>,
     title: "Properties",
     path: "/properties",
     private: false,

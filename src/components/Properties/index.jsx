@@ -29,7 +29,7 @@ const Propertys = () => {
 
       <Container>
         {data.map((value) => (
-          <HousesCard data={value}/>
+          <HousesCard id={value.id} data={value}/>
           ))}
       </Container>
           </Wrapper>
