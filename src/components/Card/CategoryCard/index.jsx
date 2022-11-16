@@ -10,7 +10,7 @@ function CategoryCard({name, img,icon, categoryIcon}) {
             <div>
                 <img className='iconc' src={icon || categoryIcon} alt="" />
                 <p>{name || "Apartment"}</p>
-                <div>asdas</div>
+                {/* <div>asdas</div> */}
             </div>
         </div>
     </>

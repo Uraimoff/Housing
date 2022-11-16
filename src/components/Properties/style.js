@@ -7,5 +7,8 @@ gap: 20px;
 width: 100%;
 max-width: 1440px;
 `;
+const PAgina=styled.div`
+margin-top: 50px;
+`
 
-export {Container}
+export {Container, PAgina}
