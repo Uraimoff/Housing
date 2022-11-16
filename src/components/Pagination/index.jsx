@@ -43,7 +43,7 @@ const Pagination = ({Pages}) => {
       setCurrentButton(arrOfCurrButtons[3] + 3);
     }
     setarrOfCurrButtons(tempNumberOfPages);
-  }, [currentButton, numberOfPages]);
+  }, [currentButton, numberOfPages, arrOfCurrButtons]);
 
   return (
     <>
