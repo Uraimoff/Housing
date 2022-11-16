@@ -12,7 +12,7 @@
     font-weight: 500;
     font-size: 15px;
 }
-.paginationContainer a{
+.paginationContainer p{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,12 +26,12 @@
 .numswraper{
     display: flex;
 }
-.paginationContainer a.active{
+.paginationContainer p.active{
     background-color: #007bff;
     color: aliceblue;
     border: 1px solid #7cbddb;
 }
-.paginationContainer a.disabled{
+.paginationContainer p.disabled{
     opacity: 0.2;
 }
-.paginationContainer a:hover:not(.active){background-color: rgb(238 238, 238,);}
+.paginationContainer p:hover:not(.active){background-color: rgb(238 238, 238,);}

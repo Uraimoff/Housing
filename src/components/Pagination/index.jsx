@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./style.css";
 
 const Pagination = ({Pages}) => {
@@ -6,6 +6,10 @@ const Pagination = ({Pages}) => {
   const [arrOfCurrButtons, setarrOfCurrButtons] = useState([]);
   const pages = `${Pages}`;
 
+  const arrOfCurrButtonsMemo = useMemo(()=>{
+    let arrOfCurrButtonsMemo = [...arrOfCurrButtons]
+    return arrOfCurrButtonsMemo
+  })
   const numberOfPages = [];
   for (let i = 1; i <= pages; i++) {
     numberOfPages.push(i);
@@ -38,37 +42,37 @@ const Pagination = ({Pages}) => {
       const sliced = numberOfPages.slice(numberOfPages.length - 4);
       tempNumberOfPages = [1, dotsLeft, ...sliced];
     } else if (currentButton === dotsLeft) {
-      setCurrentButton(arrOfCurrButtons[3] - 2);
+      setCurrentButton(arrOfCurrButtonsMemo[3] - 2);
     } else if (currentButton === dotsRight) {
-      setCurrentButton(arrOfCurrButtons[3] + 3);
+      setCurrentButton(arrOfCurrButtonsMemo[3] + 3);
     }
     setarrOfCurrButtons(tempNumberOfPages);
-  }, [currentButton, numberOfPages, arrOfCurrButtons]);
+  }, [currentButton, numberOfPages, arrOfCurrButtonsMemo]);
 
   return (
     <>
     <div className="paginationWrapper">
       <div className="paginationContainer">
-        <a
+        <p
           className={currentButton === 1 ? "disabled" : ""}
           onClick={() =>
             setCurrentButton((prev) => (prev === 1 ? prev : prev - 1))
         }
         >
           Prev
-        </a>
+        </p>
         <div className="numswraper">
         {arrOfCurrButtons.map((value, index) => (
-            <a
+            <p
             key={index}
             onClick={() => setCurrentButton(value)}
             className={currentButton === value ? "active" : ""}
             >
             {value}
-          </a>
+          </p>
         ))}
         </div>
-        <a
+        <p
           className={currentButton === numberOfPages.length ? "disabled" : ""}
           onClick={() =>
             setCurrentButton((prev) =>
@@ -77,7 +81,7 @@ const Pagination = ({Pages}) => {
         }
         >
           Next
-        </a>
+        </p>
       </div>
             </div>
     </>
