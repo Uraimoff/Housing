@@ -4,7 +4,7 @@ import PropertyCarousel from "../Carousel/PropertyCarousel";
 import Text from "../Carousel/Text";
 import GreyCard from "../Card/GreyCard";
 // import {Inputs} from '../Generic'
-import { Container, Content, InvisibleRes, Wrapper } from "./style";
+import { Container, Content, ContentHouse, InvisibleRes, Wrapper } from "./style";
 // import loupe from "./../../assets/icons/svg/loupeWhite.svg"
 import trusted from "./../../assets/icons/svg/trusted.svg";
 import properties from "./../../assets/icons/svg/properties.svg";
@@ -85,11 +85,11 @@ function Homec() {
         />
       </Wrapper>
       <InvisibleRes>
-        <Content>
+        <ContentHouse>
           {data.map((value) => (
             <HousesCard data={value} />
           ))}
-        </Content>
+        </ContentHouse>
       </InvisibleRes>
       <div className="greyChoose">
         <Text

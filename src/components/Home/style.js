@@ -17,6 +17,22 @@ display: flex;
         margin: auto;
     }
 `
+const ContentHouse =styled.div`
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin: 96px auto auto;
+    padding: 0 !important;
+    max-width: 1440px;
+    width: 100%;
+    gap: 20px;
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        padding: 0 !important;
+        flex-direction: column;
+        margin: auto  !important;;
+    }
+    `
 const Content =styled.div`
     display: flex;
     flex-direction: row;
@@ -40,4 +56,4 @@ display: none;
 }
 `
 
-export {Container,Wrapper, Content, InvisibleRes}
+export {Container,Wrapper, Content, InvisibleRes, ContentHouse}
