@@ -73,8 +73,8 @@ function Filter() {
         <H1>Apartment info</H1>
         <Sectionss>
           <Inputs
-            defaultValue={params.get("rooms")}
-            name={"rooms"}
+            defaultValue={params.get("room")}
+            name={"room"}
             onChange={onChange}
             ref={roomsRef}
             width={200}

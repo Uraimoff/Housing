@@ -5,7 +5,19 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-`
+width: 100%;
+max-width: 243px;
+min-width: 240px;
+/* @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 243px;
+    min-width: 240px;
+  }; */
+`;
 const Cause= styled.div`
 font-family: 'Montserrat';
 font-style: normal;

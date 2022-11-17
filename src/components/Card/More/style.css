@@ -34,3 +34,14 @@ line-height: 36px;
     justify-content: center;
     gap: 50px;
 }
+.moreContent div{
+    width: 100%;
+    max-width: 1440px;
+    min-width: 340px;
+    
+}
+@media only screen and(max-width: 768px) {
+    .moreContent div{
+        width: 500px;
+    }
+}

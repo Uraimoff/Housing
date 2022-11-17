@@ -1,11 +1,13 @@
 import React, { useRef } from 'react'
 import { Carousel } from 'antd';
-import { Container, Content, Content2, ContentC, Contents, Div, H1, IMG, P, Text } from './style';
+import { Container, Content, Content2,
+  //  ContentC, Contents, Div, H1, IMG, P, Text
+ } from './style';
 import house1 from "./../../assets/img/house1.png"
 import house2 from "./../../assets/img/house2.png"
-import prev from "./../../assets/icons/svg/prev.svg"
-import next from "./../../assets/icons/svg/next.svg"
-import { Buttons } from '../Generic';
+// import prev from "./../../assets/icons/svg/prev.svg"
+// import next from "./../../assets/icons/svg/next.svg"
+// import { Buttons } from '../Generic';
 import "./style.css"
 
 function Carousell() {
@@ -25,7 +27,7 @@ function Carousell() {
       </Content2>
     </div>
   </Carousel>
-  <ContentC>
+  {/* <ContentC>
         <Contents>
             <IMG onClick={()=> {ref.current.prev()}} src={prev} alt="" />
             <Text>
@@ -36,7 +38,7 @@ function Carousell() {
             </Text>
             <IMG onClick={()=> {ref.current.next()}} src={next} alt="" />
         </Contents>
-  </ContentC>
+  </ContentC> */}
     </Container>
     </>
   )

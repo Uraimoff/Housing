@@ -12,6 +12,10 @@ display: flex;
     padding: 0px 130px;
     max-width: 1440px;
     width: 100%;
+    @media only screen and (max-width: 768px) {
+        display: none;
+        margin: auto;
+    }
 `
 const Content =styled.div`
     display: flex;
@@ -21,6 +25,19 @@ const Content =styled.div`
     padding: 0px 130px;
     max-width: 1440px;
     width: 100%;
+    gap: 20px;
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    `
+const InvisibleRes = styled.div`
+display: none;
+@media only screen and (max-width: 768px) {
+    display: block;
+    margin: auto;
+}
 `
 
-export {Container,Wrapper, Content}
+export {Container,Wrapper, Content, InvisibleRes}

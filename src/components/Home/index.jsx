@@ -4,14 +4,14 @@ import PropertyCarousel from "../Carousel/PropertyCarousel";
 import Text from "../Carousel/Text";
 import GreyCard from "../Card/GreyCard";
 // import {Inputs} from '../Generic'
-import { Container, Content, Wrapper } from "./style";
+import { Container, Content, InvisibleRes, Wrapper } from "./style";
 // import loupe from "./../../assets/icons/svg/loupeWhite.svg"
 import trusted from "./../../assets/icons/svg/trusted.svg";
 import properties from "./../../assets/icons/svg/properties.svg";
 import calculator from "./../../assets/icons/svg/calculator.svg";
 import map from "./../../assets/icons/svg/map.svg";
 import { property } from "../../mock/data";
-import { categorydata } from "../../utils/navbar";
+// import { categorydata } from "../../utils/navbar";
 
 import "./style.css";
 import HousesCard from "../Card/HousesCard";
@@ -21,24 +21,27 @@ import TestimonialCard from "../Card/TestimonialCard";
 
 function Homec() {
   const [data, setData] = useState([]);
+  const [datas, setDatas] = useState([]);
 
   const { REACT_APP_BASE_URL: url } = process.env;
   useEffect(() => {
     fetch(`${url}/houses/list`)
       .then((res) => res.json())
       .then((res) => {
-        setData(res?.data  || []);
+        setData(res?.data || []);
+        // console.log(res);
+      });
+  }, [url]);
+  console.log(data, "houses");
+  useEffect(() => {
+    fetch(`${url}/categories/list`)
+      .then((res) => res.json())
+      .then((res) => {
+        setDatas(res?.data || []);
         console.log(res);
       });
   }, [url]);
-  // useEffect(() => {
-  //   fetch(`${url}/categories/list`)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setData(res?.data  || []);
-  //       console.log(res);
-  //     });
-  // }, [url]);
+  console.log(datas, "category");
 
   const chose = [
     {
@@ -75,13 +78,19 @@ function Homec() {
       </div>
       <Wrapper>
         <PropertyCarousel
+          className="resCar"
           slideContent={data.map((value) => (
-            <HousesCard
-              data={value}
-            />
+            <HousesCard data={value} />
           ))}
         />
       </Wrapper>
+      <InvisibleRes>
+        <Content>
+          {data.map((value) => (
+            <HousesCard data={value} />
+          ))}
+        </Content>
+      </InvisibleRes>
       <div className="greyChoose">
         <Text
           theme={"Why Choose Us?"}
@@ -104,13 +113,9 @@ function Homec() {
         />
         <Wrapper>
           <PropertyCarousel
-          slideToShow={"four"}
-            slideContent={categorydata.map((value) => (
-              <CategoryCard
-                img={value.img}
-                name={value.name}
-                categoryIcon={value.icon}
-              />
+            slideToShow={"four"}
+            slideContent={datas.map((value) => (
+              <CategoryCard data={value} />
             ))}
           />
         </Wrapper>
@@ -129,9 +134,7 @@ function Homec() {
       <Wrapper>
         <PropertyCarousel
           slideContent={data.map((value) => (
-            <HousesCard
-              data={value}
-            />
+            <HousesCard data={value} />
           ))}
         />
       </Wrapper>
@@ -143,21 +146,20 @@ function Homec() {
           }
         />
         <Wrapper>
-
-      <PropertyCarousel
-        slideContent={property.map((value) => (
-          <TestimonialCard
-          opinion={
-            "“ I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends “"
-          }
-          avatar={value.avatar}
-          name={value.name}
-          profession={value.address}
+          <PropertyCarousel
+            slideContent={property.map((value) => (
+              <TestimonialCard
+                opinion={
+                  "“ I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends “"
+                }
+                avatar={value.avatar}
+                name={value.name}
+                profession={value.address}
+              />
+            ))}
           />
-          ))}
-          />
-          </Wrapper>
-          </div>
+        </Wrapper>
+      </div>
     </Container>
   );
 }

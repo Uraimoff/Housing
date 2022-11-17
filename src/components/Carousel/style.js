@@ -42,14 +42,31 @@ const ContentC=styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+width: 100%;
+max-width: 500px;
+min-width: 310px;
+margin:auto;
+background: #000;
+@media only screen and(max-width: 768px) {
+    display: none;
+}
 `
 const Contents =styled.div`
+width: 100%;
+max-width: 1440px;
+min-width: 310px;
+margin:auto;
+background: #000;
 position: absolute;
 width: 1440px;
 top: 240px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+@media only screen and(max-width: 768px) {
+    display: none;
+    opacity: 0;
+}
 `
 
 const Text =styled.div`
@@ -88,6 +105,9 @@ opacity: 0.6;
 :hover{
     opacity: 1;
 }
+/* @media only screen and(max-width: 768px) {
+    display: none;
+} */
 `
 
 export {Container, Content, Content2, Contents, ContentC, Text, H1, P, Div, IMG}

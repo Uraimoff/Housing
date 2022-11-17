@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, PAgina } from "./style";
+import { Container } from "./style";
 import { useEffect, useState } from "react" 
 import HousesCard from "./../Card/HousesCard";
 import { useLocation } from "react-router-dom";
 import Text from "../Carousel/Text";
 import {Wrapper} from "./../Home/style.js"
-import Pagination from "../Pagination";
+// import Pagination from "../Pagination";
 
 const Propertys = () => {
   const [data, setData] = useState([]);
@@ -30,14 +30,14 @@ const Propertys = () => {
         <Wrapper>
 
       <Container>
-        {data.map((value) => (
-          <HousesCard id={value.id} data={value}/>
+        {data.map((value, index) => (
+          <HousesCard id={index} data={value}/>
           ))}
       </Container>
-      <PAgina>
+      {/* <PAgina>
       <Pagination Pages={50}/>
 
-      </PAgina>
+      </PAgina> */}
           </Wrapper>
     </>
   );

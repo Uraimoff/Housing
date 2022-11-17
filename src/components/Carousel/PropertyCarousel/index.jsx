@@ -8,7 +8,7 @@ const PropertyCarousel=({slideContent, slideToShow})=> {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: slideToShow==="four" ? 4 : 3,
+    slidesToShow: slideToShow==="four" ? 4 : 3 && slideToShow==="res" ? 1 : 3,
     slidesToScroll: 1,
   };
   return (

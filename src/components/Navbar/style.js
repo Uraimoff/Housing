@@ -6,10 +6,12 @@ display: flex;
 width: 100%;
 flex-direction: column;
 justify-content: center;
+min-width: 0;
 `
 const Main=styled.div`
 width: 100%;
 display: flex;
+min-width: 0;
 justify-content: center;
 background: var(--colorPrimary);
 `
@@ -21,13 +23,17 @@ justify-content: center;
 const Wrapper=styled.div`
 background: var(--colorPrimary);
 color: white;
-padding: var(--padding);
+/* padding: var(--padding); */
 max-width: 1440px;
+min-width: 0;
 height: 64px;
 display: flex;
 align-items: center;
 width: 100%;
 justify-content: space-between;
+@media only screen and(max-width: 768px) {
+    padding: 0 !important;
+}
 
 
 font-size:16px;
@@ -67,5 +73,11 @@ text-decoration:none;
     color: #f5f7da;
 }
 `
+const Nav = styled.div`
+display: flex;
+@media only screen and (max-width: 768px) {
+    display: none;
+}
+`
 
-export {Container,Wrapper, Section, Logo, Link, H3, Main, Main2}
+export {Container,Wrapper, Section, Logo, Link, H3, Main, Main2, Nav}
