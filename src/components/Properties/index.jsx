@@ -1,10 +1,9 @@
 import React from "react";
-import { Container } from "./style";
+import { Container, Wrapper } from "./style";
 import { useEffect, useState } from "react" 
 import HousesCard from "./../Card/HousesCard";
 import { useLocation } from "react-router-dom";
 import Text from "../Carousel/Text";
-import {Wrapper} from "./../Home/style.js"
 // import Pagination from "../Pagination";
 
 const Propertys = () => {
