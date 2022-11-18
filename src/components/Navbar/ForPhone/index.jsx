@@ -6,11 +6,10 @@ import facebook from "./../../../assets/icons/svg/facebookIcon.svg";
 import twitter from "./../../../assets/icons/svg/twittericon.svg";
 import instagram from "./../../../assets/icons/svg/instagramIcon.svg";
 import linkedin from "./../../../assets/icons/svg/linkedinIcon.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const NavbarForPhone = () => {
   const [active, setActive] = useState("");
-  const navigate = useNavigate
 
   const handleClick = () => {
     setActive((current) => !current);
