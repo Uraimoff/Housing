@@ -7,6 +7,7 @@ import apartment from "./../assets/icons/svg/apartment.svg"
 import office from "./../assets/icons/svg/office.svg"
 import villa from "./../assets/icons/svg/villa.svg"
 import category from "./../assets/img/category.png"
+// import Register from "../components/Register";
 // import Properties from "./../pages/Properties";
 const Home = React.lazy(()=>import("./../pages/Home"));
 const Properties = React.lazy(()=>import("./../pages/Properties"));

@@ -26,9 +26,11 @@ font-size: 18px;
 line-height: 28px;
 padding-top: 30px;
 /* padding: 10px; */
+text-align: center;
 `
 const Txt= styled.div`
 font-family: 'Montserrat';
+text-align: center;
 font-style: normal;
 font-weight: 400;
 font-size: 16px;

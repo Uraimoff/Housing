@@ -39,7 +39,7 @@ function Navbar() {
           </Section>
           <Section>
             <LoginButton>
-            <Buttons onClick={() => navigate("./signin")} txt={"Login"} />
+            <Buttons width={128} onClick={() => navigate("./signin")} txt={"Login"} />
             </LoginButton>
             <LoginIcon onClick={() => navigate("./signin")}>
               <img  src={login} alt="" />

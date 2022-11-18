@@ -50,7 +50,7 @@ const Content =styled.div`
     `
 const Contented =styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     
@@ -61,6 +61,7 @@ const Contented =styled.div`
     width: 100%;
     @media only screen and (max-width: 768px) {
         margin: auto !important;
+        flex-direction: column;
     }
     `
 const InvisibleRes = styled.div`

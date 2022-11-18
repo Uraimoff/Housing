@@ -9,7 +9,9 @@ function Buttons({ txt, img, height, width, color, border, background, onClick }
       style={{
           gap: img ? `8px`: "0",
           height: height ? `${height}px` : `44px`,
-          width: width ? `${width}px` : `128px`,
+          maxWidth: width ? `${width}px` : "128px",
+          minWidth: "128px",
+          width: `100%`,
           color: color ? `${color}` : `inherit`,
           border: border ? `${border}` : `#E6E9EC 1px solid`,
           backgroundColor: background ? `${background}` : `transparent`,
