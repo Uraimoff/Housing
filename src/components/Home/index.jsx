@@ -4,7 +4,7 @@ import PropertyCarousel from "../Carousel/PropertyCarousel";
 import Text from "../Carousel/Text";
 import GreyCard from "../Card/GreyCard";
 // import {Inputs} from '../Generic'
-import { Container, Content, ContentHouse, InvisibleRes, Wrapper } from "./style";
+import { Container, Content, Contented, ContentHouse, InvisibleRes, Wrapper } from "./style";
 // import loupe from "./../../assets/icons/svg/loupeWhite.svg"
 import trusted from "./../../assets/icons/svg/trusted.svg";
 import properties from "./../../assets/icons/svg/properties.svg";
@@ -98,11 +98,13 @@ function Homec() {
             "Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."
           }
         />
-        <Content>
+        <>
+        <Contented>
           {chose.map((value) => (
             <GreyCard img={value.img} name={value.name} txt={value.txt} />
-          ))}
-        </Content>
+            ))}
+        </Contented>
+            </>
       </div>
       <div>
         <Text

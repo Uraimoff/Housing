@@ -2,3 +2,16 @@
 .slick-dots{
  left: -240px !important;
 }
+.contentpr{
+    display: block;
+    /* background-color: red; */
+    width: 100%;
+    max-width: 1440px;
+    min-width: 300px;
+}
+@media only screen and(max-width: 768px) {
+    .contentpr{
+        display: none;
+        background-color: aqua;
+    }
+}

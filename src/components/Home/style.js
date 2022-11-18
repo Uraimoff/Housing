@@ -48,6 +48,21 @@ const Content =styled.div`
         margin: auto;
     }
     `
+const Contented =styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative;
+    margin: 96px auto auto;
+    padding: 0px 130px;
+    max-width: 1440px;
+    width: 100%;
+    @media only screen and (max-width: 768px) {
+        margin: auto !important;
+    }
+    `
 const InvisibleRes = styled.div`
 display: none;
 @media only screen and (max-width: 768px) {
@@ -56,4 +71,4 @@ display: none;
 }
 `
 
-export {Container,Wrapper, Content, InvisibleRes, ContentHouse}
+export {Container,Wrapper, Content, InvisibleRes, ContentHouse, Contented}

@@ -12,7 +12,7 @@ import { useSearch } from "../../hooks/uzeSearch";
 function Filter() {
   const { REACT_APP_BASE_URL: url } = process.env;
   const [data, setData] = useState([]);
-  const [value, setValue] = useState("Select");
+  const [value, setValue] = useState("Select Category");
   // console.log(uzeReplace("address", "tashkent"))
   const location = useLocation();
   const navigate = useNavigate();
@@ -50,6 +50,9 @@ function Filter() {
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
   };
 
+  const onChangeSort =(sort)=>{
+    navigate(`/properties${uzeReplace("sort", sort)}`)
+  }
   const onChangeCategory =(category_id)=>{
     console.log(category_id, "select");
     navigate(`/properties${uzeReplace("category_id", category_id)}`)
@@ -105,14 +108,14 @@ function Filter() {
             width={200}
             placeholder={"Rooms"}
           />
-          <Inputs
+          {/* <Inputs
             defaultValue={params.get("sort")}
             onChange={onChange}
             name={"sort"}
             ref={sortRef}
             width={200}
             placeholder={"Sort"}
-          />
+          /> */}
           {/* <Inputs
             defaultValue={params.get("size")}
             onChange={onChange}
@@ -121,6 +124,10 @@ function Filter() {
             width={200}
             placeholder={"Size"}
           /> */}
+          <SelectAnt name="" id="" defaultValue={params.get("Sort") || "Select Sort"} onChange={onChangeSort}>
+            <SelectAnt.Option value='asc'>O'suvchi</SelectAnt.Option>
+            <SelectAnt.Option value='desc'>Kamayuvchi</SelectAnt.Option>
+            </SelectAnt>
           <SelectAnt name="" id="" defaultValue={value} onChange={onChangeCategory}>
           {data.map((value)=>(
             <SelectAnt.Option key={value?.id} value={value?.id}>{value?.name}</SelectAnt.Option>

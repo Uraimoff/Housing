@@ -13,7 +13,7 @@ import { Container } from './style'
 
 
 function HousesCard({data}) {
-    const {attachments, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data
+    const {attachments, avatar, address, houseDetails, salePrice,room, price, city, country, description, category} = data
   return (
     <>
     <Container>
@@ -28,12 +28,12 @@ function HousesCard({data}) {
             <div className='Sale'>FOR SALE</div>
             <div className='Apartment'>
                 <div className='name inline'>{description || "New Apartment Nice Wiew"}</div>
-                <div className='txt'>{`${address}, ${city}, ${country}, ${category?.name}` || "Brooklyn"}</div>
+                <div className='txt inline'>{`${address}, ${city}, ${country}, ${category?.name}` || "Brooklyn"}</div>
             </div>
             <div className='info'>
                 <div className='infocat'>
                     <img className='imgsize'alt="" src={bed}/>
-                    <div className='txt'>Bed {houseDetails?.beds || 0}</div>
+                    <div className='txt'>Bed {houseDetails?.beds || 0} </div>
                 </div>
                 <div className='infocat'>
                     <img className='imgsize'alt="" src={bath}/>
@@ -50,7 +50,7 @@ function HousesCard({data}) {
             </div>
             <div className='bottom'>
                 <div className=''>
-                    <p className='line'>${price || 0}/mo</p>
+                    <p className='line'>${price || 0}/mo,</p>
                     <div className='price'>${salePrice || 0}/mo</div>
                 </div>
                 <div className='btn'>
