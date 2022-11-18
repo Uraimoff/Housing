@@ -13,7 +13,7 @@ import { Container } from './style'
 
 
 function HousesCard({data}) {
-    const {attachments, avatar, address, houseDetails, salePrice,room, price, city, country, description, category} = data
+    const {attachments, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data
   return (
     <>
     <Container>

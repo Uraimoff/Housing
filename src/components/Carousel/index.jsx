@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Carousel } from 'antd';
 import { Container, Content,
-   ContentC, Contents, Div, H1, IMG, P, Position, Text
+   ContentC, Contents, Div, H1, IMG, P, Text
  } from './style';
 import house1 from "./../../assets/img/house1.png"
 import house2 from "./../../assets/img/house2.png"

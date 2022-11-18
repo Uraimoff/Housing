@@ -24,7 +24,7 @@ function Filter() {
   const zipRef = useRef();
   const roomsRef = useRef();
   // const sizeRef = useRef();
-  const sortRef = useRef();
+  // const sortRef = useRef();
   const minRef = useRef();
   const maxRef = useRef();
 
