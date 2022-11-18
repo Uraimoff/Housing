@@ -1,10 +1,12 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Container, Wrapper, Section, Logo, Link, H3, Main, Main2, Nav } from "./style";
-import LogoIMG from "./../../assets/icons/svg/Logo.svg";
+import { Container, Wrapper, Section, Logo, Link, H3, Main, Main2, Nav, PhoneNavbar, LoginButton, LoginIcon } from "./style";
+import LogoIMG from "./../../assets/icons/svg/Logo.svg"; 
+import login from "./../../assets/icons/svg/login.svg"; 
 import { navbar } from "../../utils/navbar";
 import { Buttons } from "../Generic";
 import Filter from "../Filter";
+import NavbarForPhone from "./ForPhone";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -12,6 +14,9 @@ function Navbar() {
     <Container>
       <Main>
         <Wrapper>
+          <PhoneNavbar>
+          <NavbarForPhone/>
+          </PhoneNavbar>
           <Section onClick={() => navigate("./home")}>
             <Logo src={LogoIMG} />
             <H3>Houzing</H3>
@@ -33,7 +38,12 @@ function Navbar() {
                 </Nav>
           </Section>
           <Section>
+            <LoginButton>
             <Buttons onClick={() => navigate("./signin")} txt={"Login"} />
+            </LoginButton>
+            <LoginIcon onClick={() => navigate("./signin")}>
+              <img  src={login} alt="" />
+            </LoginIcon>
           </Section>
         </Wrapper>
       </Main>

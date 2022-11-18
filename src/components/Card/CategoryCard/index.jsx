@@ -8,7 +8,7 @@ function CategoryCard({data}) {
   const {name, img, id, icon, categoryIcon}= data
   return (
     <>
-        <div onClick={()=>navigate(`/properties?category=${name}`)} id={id} className='wrapper'>
+        <div onClick={()=>navigate(`/properties?category_id=${id}`)} id={id} className='wrapper'>
             <img className="imgc" src={img=== null ? noImage : img || img=== undefined ? noImage : img } alt=''/>
             <div>
                 <img className='iconc' src={icon || categoryIcon} alt="" />

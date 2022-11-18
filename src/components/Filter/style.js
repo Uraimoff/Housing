@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {Select} from "antd"
+
 
 const Filtr=styled.div`
 display: flex;
@@ -45,5 +47,13 @@ display: flex;
 justify-content: end;
 background-color: #F6F8F9;
 `
-
-export {Filtr, MenuWrapper, Section, Sections, Sectionss, H1}
+const SelectAnt = styled(Select)`
+width: 200px;
+.ant-select-selector{
+    height: 44px !important;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+`
+export {Filtr, MenuWrapper, Section, Sections, Sectionss, H1, SelectAnt}

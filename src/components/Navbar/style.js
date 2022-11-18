@@ -23,7 +23,7 @@ justify-content: center;
 const Wrapper=styled.div`
 background: var(--colorPrimary);
 color: white;
-/* padding: var(--padding); */
+padding: 0 130px;
 max-width: 1440px;
 min-width: 0;
 height: 64px;
@@ -33,6 +33,9 @@ width: 100%;
 justify-content: space-between;
 @media only screen and(max-width: 768px) {
     padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -89,5 +92,30 @@ max-width: 420px;
     display: none;
 }
 `
+const PhoneNavbar = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+display: none;
+@media only screen and (max-width: 768px) {
+    position: absolute;
+    display: block;
+top: 0;
+left: 0;    
+}
+`
+const LoginButton = styled.div`
+display: block;
+@media only screen and (max-width: 768px) {
+    display: none;
+}
+`
+const LoginIcon = styled.div`
+display: none;
+@media only screen and (max-width: 768px) {
+    display: block;
+    margin-left: 100px;
+}
+`
 
-export {Container,Wrapper, Section, Logo, Link, H3, Main, Main2, Nav}
+export {Container,Wrapper, Section, Logo, Link, H3, Main, Main2, Nav, PhoneNavbar, LoginButton, LoginIcon}

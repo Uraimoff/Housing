@@ -13,7 +13,7 @@ import { Container } from './style'
 
 
 function HousesCard({data}) {
-    const {attachments, avatar, address, houseDetails, salePrice, price, city, country, description} = data
+    const {attachments, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data
   return (
     <>
     <Container>
@@ -28,7 +28,7 @@ function HousesCard({data}) {
             <div className='Sale'>FOR SALE</div>
             <div className='Apartment'>
                 <div className='name inline'>{description || "New Apartment Nice Wiew"}</div>
-                <div className='txt'>{`${address}, ${city}, ${country}` || "Brooklyn"}</div>
+                <div className='txt'>{`${address}, ${city}, ${country}, ${category?.name}` || "Brooklyn"}</div>
             </div>
             <div className='info'>
                 <div className='infocat'>

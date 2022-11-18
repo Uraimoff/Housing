@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 max-width: 1440px;
 min-width: 300px;
     width: 100%;
+    padding: var(--padding);
     margin: auto;
     `
 const PAgina=styled.div`

@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Buttons, Inputs } from "../Generic";
-import { Filtr, H1, MenuWrapper, Section, Sections, Sectionss } from "./style";
+import { Filtr, H1, MenuWrapper, Section, Sections, Sectionss, SelectAnt } from "./style";
 import loupe from "./../../assets/icons/svg/loupeWhite.svg";
 import setting from "./../../assets/icons/svg/Settings.svg";
 import house from "./../../assets/icons/svg/house.svg";
@@ -10,6 +10,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSearch } from "../../hooks/uzeSearch";
 
 function Filter() {
+  const { REACT_APP_BASE_URL: url } = process.env;
+  const [data, setData] = useState([]);
+  const [value, setValue] = useState("Select");
   // console.log(uzeReplace("address", "tashkent"))
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,15 +23,37 @@ function Filter() {
   const cityRef = useRef();
   const zipRef = useRef();
   const roomsRef = useRef();
-  const sizeRef = useRef();
+  // const sizeRef = useRef();
   const sortRef = useRef();
   const minRef = useRef();
   const maxRef = useRef();
+
+  useEffect(()=>{
+    if( params.get('category_id')){
+      let [res]= data.filter((ctg)=> ctg.id === Number(params.get('category_id')))
+      setValue(res?.name)
+    }
+  }, [data, params])
+  
+  useEffect(() => {
+    fetch(`${url}/categories/list`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res?.data || []);
+        // console.log(res);
+      });
+  }, [url]);
+  console.log(data, "filter");
 
   // console.log(params.get("country"), "params");
   const onChange = ({ target: { name, value } }) => {
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
   };
+
+  const onChangeCategory =(category_id)=>{
+    console.log(category_id, "select");
+    navigate(`/properties${uzeReplace("category_id", category_id)}`)
+  }
 
   const menu = () => (
     <MenuWrapper>
@@ -81,14 +106,6 @@ function Filter() {
             placeholder={"Rooms"}
           />
           <Inputs
-            defaultValue={params.get("size")}
-            onChange={onChange}
-            name={"size"}
-            ref={sizeRef}
-            width={200}
-            placeholder={"Size"}
-          />
-          <Inputs
             defaultValue={params.get("sort")}
             onChange={onChange}
             name={"sort"}
@@ -96,6 +113,19 @@ function Filter() {
             width={200}
             placeholder={"Sort"}
           />
+          {/* <Inputs
+            defaultValue={params.get("size")}
+            onChange={onChange}
+            name={"size"}
+            ref={sizeRef}
+            width={200}
+            placeholder={"Size"}
+          /> */}
+          <SelectAnt name="" id="" defaultValue={value} onChange={onChangeCategory}>
+          {data.map((value)=>(
+            <SelectAnt.Option key={value?.id} value={value?.id}>{value?.name}</SelectAnt.Option>
+            ))}
+            </SelectAnt>
         </Sectionss>
       </Section>
       <Section>
