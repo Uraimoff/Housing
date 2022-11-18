@@ -93,15 +93,12 @@ max-width: 420px;
 }
 `
 const PhoneNavbar = styled.div`
-position: absolute;
-top: 0;
-left: 0;
 display: none;
 @media only screen and (max-width: 768px) {
-    position: absolute;
+    /* position: absolute; */
     display: block;
-top: 0;
-left: 0;    
+/* top: 0; */
+/* left: 0;     */
 }
 `
 const LoginButton = styled.div`
