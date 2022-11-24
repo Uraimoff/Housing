@@ -19,7 +19,7 @@ transition: all 0.5s;
 }
 :focus::placeholder{
     color:red;
-    transform:scaleY(2)
+    /* transform:scaleY(2) */
 }
 `
 const Wrapper=styled.div`
