@@ -6,9 +6,10 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 504px;
-position: absolute;
-top: 65px;
-width: 100%;
+/* position: absolute; */
+/* top: 65px; */
+/* width: 100%; */
+margin-bottom: 200px;
 /* margin: auto; */
 `
 
@@ -36,6 +37,9 @@ font-family: 'Montserrat';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
+display: flex;
+justify-content: flex-end;
+margin-bottom: 20px;
 line-height: 24px;
 text-decoration: underline;
 `

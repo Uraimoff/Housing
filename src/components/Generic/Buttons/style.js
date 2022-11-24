@@ -10,6 +10,10 @@ font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 20px;
+transition: all 0.6s;
+:active{
+    opacity: 0.6;
+}
 `
 const Icon = styled.img``
 

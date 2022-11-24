@@ -13,7 +13,6 @@ function Filter() {
   const { REACT_APP_BASE_URL: url } = process.env;
   const [data, setData] = useState([]);
   const [value, setValue] = useState("Select Category");
-  // console.log(uzeReplace("address", "tashkent"))
   const location = useLocation();
   const navigate = useNavigate();
   const params = useSearch();
@@ -23,8 +22,6 @@ function Filter() {
   const cityRef = useRef();
   const zipRef = useRef();
   const roomsRef = useRef();
-  // const sizeRef = useRef();
-  // const sortRef = useRef();
   const minRef = useRef();
   const maxRef = useRef();
 
@@ -43,7 +40,7 @@ function Filter() {
         // console.log(res);
       });
   }, [url]);
-  console.log(data, "filter");
+  // console.log(data, "filter");
 
   // console.log(params.get("country"), "params");
   const onChange = ({ target: { name, value } }) => {
@@ -54,7 +51,7 @@ function Filter() {
     navigate(`/properties${uzeReplace("sort", sort)}`)
   }
   const onChangeCategory =(category_id)=>{
-    console.log(category_id, "select");
+    // console.log(category_id, "select");
     navigate(`/properties${uzeReplace("category_id", category_id)}`)
   }
 
@@ -108,22 +105,6 @@ function Filter() {
             width={200}
             placeholder={"Rooms"}
           />
-          {/* <Inputs
-            defaultValue={params.get("sort")}
-            onChange={onChange}
-            name={"sort"}
-            ref={sortRef}
-            width={200}
-            placeholder={"Sort"}
-          /> */}
-          {/* <Inputs
-            defaultValue={params.get("size")}
-            onChange={onChange}
-            name={"size"}
-            ref={sizeRef}
-            width={200}
-            placeholder={"Size"}
-          /> */}
           <SelectAnt name="" id="" defaultValue={params.get("Sort") || "Select Sort"} onChange={onChangeSort}>
             <SelectAnt.Option value='asc'>O'suvchi</SelectAnt.Option>
             <SelectAnt.Option value='desc'>Kamayuvchi</SelectAnt.Option>

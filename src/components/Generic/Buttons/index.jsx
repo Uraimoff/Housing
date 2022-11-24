@@ -2,12 +2,22 @@ import React from "react";
 import { Btn, Icon } from "./style";
 // import loupe from "./../../assets/icons/svg/loupeWhite.svg"
 
-function Buttons({ txt, img, height, width, color, border, background, onClick }) {
+function Buttons({
+  txt,
+  img,
+  height,
+  width,
+  color,
+  border,
+  background,
+  onClick,
+}) {
   return (
     <>
-      <Btn  onClick={onClick}
-      style={{
-          gap: img ? `8px`: "0",
+      <Btn
+        onClick={onClick}
+        style={{
+          gap: img ? `8px` : "0",
           height: height ? `${height}px` : `44px`,
           maxWidth: width ? `${width}px` : "128px",
           minWidth: "128px",

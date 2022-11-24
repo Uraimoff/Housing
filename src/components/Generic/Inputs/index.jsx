@@ -1,8 +1,14 @@
-import React from "react";
-import { Icon, Inpt, Wrapper } from "./style";
-// import loupe from "./../../../assets/icons/svg/loupeWhite.svg";
+import React, { useState } from "react";
+import { Icon, Iconic, Inpt, Wrapper } from "./style";
+import show from "./../../../assets/icons/svg/show.svg";
 
-function Inputs({ width, height, border, placeholder, onChange, name, icon, defaultValue }) {
+
+function Inputs({ width, height, border, placeholder, onChange,password, name, icon, defaultValue }) {
+  const [view, setView] = useState(false)
+
+  // const handleClick = () => {
+  //   setView((current) => !current);
+  // };
   return (
     <>
     <Wrapper style={{
@@ -10,7 +16,9 @@ function Inputs({ width, height, border, placeholder, onChange, name, icon, defa
     }}>
       <Icon src={icon}/>
       <Inpt
+      type={view ? "text" : password }
       icon={icon}
+      border={border}
         placeholder={placeholder}
         onChange={onChange}
         defaultValue={defaultValue}
@@ -19,11 +27,14 @@ function Inputs({ width, height, border, placeholder, onChange, name, icon, defa
           width: width ? `${width}px` : `100%`,
           height: height ? `${height}px` : `44px`,
           paddingLeft: icon ? `30px` : "15px",
-          border: border ? `${border}` : `1px solid #E6E9EC`,
-          borderBottom: border ? `2px solid #E6E9EC` : `2px solid #E6E9EC`,
+          // border: border ? `${border}` : `1px solid #E6E9EC`,
+          // borderBottom: border ? `2px solid #E6E9EC` : `2px solid #E6E9EC`,
+          
         }}
-        type="text"
         />
+        <Iconic onClick={()=>setView(!view)} style={{
+          display: password ? "" : "none",  
+        }} src={show}/>
         </Wrapper>
     </>
   );

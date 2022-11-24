@@ -29,8 +29,8 @@ const Propertys = () => {
         <Wrapper>
 
       <Container>
-        {data.map((value, index) => (
-          <HousesCard id={index} data={value}/>
+        {data.map((value) => (
+          <HousesCard data={value}/>
           ))}
       </Container>
       {/* <PAgina>

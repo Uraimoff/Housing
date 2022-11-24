@@ -25,6 +25,8 @@ const Sectionss = styled.div`
 display: flex;
 gap: 20px;
 padding: 10px 20px 20px 20px;
+justify-content: center;
+flex-wrap: wrap;
 @media only screen and(max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -50,7 +52,7 @@ background-color: #F6F8F9;
 const SelectAnt = styled(Select)`
 width: 200px;
 .ant-select-selector{
-    height: 44px !important;
+    height: 44px !important;    
     align-items: center;
     padding: 0;
     margin: 0;

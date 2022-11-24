@@ -6,9 +6,10 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 504px;
-position: absolute;
-top: 65px;
-width: 100%;
+/* position: absolute; */
+/* top: 65px; */
+/* width: 100%; */
+/* margin-bottom: 500px */
 /* margin: auto; */
 `
 

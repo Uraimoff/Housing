@@ -7,6 +7,7 @@ import { navbar } from "../../utils/navbar";
 import { Buttons } from "../Generic";
 import Filter from "../Filter";
 import NavbarForPhone from "./ForPhone";
+import Footer from "../Footer";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ function Navbar() {
       <Filter />
       </Main2>
       <Outlet />
+      <Footer/>
     </Container>
   );
 }

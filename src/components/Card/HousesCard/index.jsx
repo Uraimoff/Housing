@@ -10,13 +10,16 @@ import car from "./../../../assets/icons/svg/car.svg"
 import bed from "./../../../assets/icons/svg/bed.svg"
 import noImage from "./../../../assets/img/noImage.webp"
 import { Container } from './style'
+import { useNavigate } from 'react-router-dom'
 
 
 function HousesCard({data}) {
-    const {attachments, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data
+    const {attachments, id, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data
+    const navigate = useNavigate()
   return (
     <>
-    <Container>
+    <div key={id} onClick={()=>navigate(`/view/${id}`)}>
+    <Container >
         <div className='houseWrapper'>
         <img className='HouseImg' src={attachments[0]?.imgPath === "string" ? noImage : attachments[0]?.imgPath} alt="" />
         </div>
@@ -60,6 +63,7 @@ function HousesCard({data}) {
             </div>
         </div>
     </Container>
+    </div>
     </>
   )
 }
