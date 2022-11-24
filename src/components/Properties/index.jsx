@@ -31,7 +31,7 @@ const Propertys = () => {
 
       <Container>
         {data.map((value) => (
-          <HousesCard data={value}/>
+          <HousesCard key={value.id} data={value}/>
           ))}
       </Container>
       {/* <PAgina>

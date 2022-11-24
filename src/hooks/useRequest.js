@@ -1,9 +1,9 @@
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const { REACT_APP_BASE_URL } = process.env;
 
 export const useRequest = () => {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const warning=(error)=>{
       message.warning(error||'Something went wrong')
     }
@@ -15,7 +15,12 @@ export const useRequest = () => {
     const options={
       method,
       headers: { ...headers, 'Content-Type': 'application/json'},
-      body: JSON.stringify(body)
+      body: JSON.stringify({
+        // vaqtincha shu malumotla orqali login qilinadi keinroq body qoyib ketiladi "iwladi"
+        // temporary data in order to know is login works or not, later insted use body 
+        email: "xasanabdurazakov_100@mail.ru",
+        password: "Ss20010806"
+      })
     }
 
     try{

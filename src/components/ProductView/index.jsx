@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import avatar from "./../../assets/img/avatar.jpg"
 // import HousesCard from '../Card/HousesCard'
-import { Container, ContainerWr, Section, SmTxt, Txt } from "./style.js";
-import useRequest from "../../hooks/useRequest.js";
+import { Container, ContainerWr, Section, Send, SmTxt, Txt } from "./style.js";
+// import useRequest from "../../hooks/useRequest.js";
 import noImage from "./../../assets/img/noImage.webp";
-import {Inputs, Buttons} from "./../Generic"
+import { Inputs, Buttons } from "./../Generic";
 import { Wrapper } from "./style.js";
 import share from "./../../assets/icons/svg/share.svg";
 import like from "./../../assets/icons/svg/Like.svg";
@@ -16,10 +17,11 @@ import calendar from "./../../assets/icons/svg/calendar.svg";
 import pdfDownload from "./../../assets/icons/svg/pdfDownload.svg";
 import "./style.css";
 import { SelectAnt } from "../AddNewProperty/style.js";
+import { Checkbox } from "antd";
 
 const View = () => {
   const [data, setData] = useState({});
-  const request = useRequest();
+  // const request = useRequest();
   const params = useParams();
   const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -31,9 +33,11 @@ const View = () => {
           setData(res?.data || {});
         });
   }, [url, params?.id]);
-  // console.log(data?.attachments[0]?.imgPath, "fetch data");
 
-  // console.log(data, "params data");
+  const onChange = (e) => {
+    console.log(`checked = ${e.target.checked}`);
+  };
+  console.log(data, "params data");
   return (
     <>
       <Section>
@@ -42,8 +46,7 @@ const View = () => {
             <div className="bgImgWrap">
               <img
                 src={
-                  // data?.attachments[1]?.imgPath
-                  // ||
+                  (data?.attachments && data?.attachments[0]?.imgPath) ||
                   noImage
                 }
                 alt=""
@@ -69,27 +72,42 @@ const View = () => {
               <div className="nameWr">
                 <div>
                   <Txt>Luxury Family Loft by Victoria Park</Txt>
-                  <div className="addressed">Quincy St, Brooklyn, NY, USA</div>
+                  <div className="addressed">
+                    {" "}
+                    {data?.address}, {data?.city}, {data?.country},{" "}
+                    {data?.category?.name}
+                  </div>
                   <div className="rooms">
                     <div className="rooms_inner">
                       <img src={bed} alt="" />
-                      <div className="universalTxt">rooms</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.beds} Beds
+                      </div>
                     </div>
                     <div className="rooms_inner">
                       <img src={bath} alt="" />
-                      <div className="universalTxt">rooms</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.bath} Bath
+                      </div>
                     </div>
                     <div className="rooms_inner">
                       <img src={car} alt="" />
-                      <div className="universalTxt">rooms</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.garage} Garages
+                      </div>
                     </div>
                     <div className="rooms_inner">
                       <img src={ruler} alt="" />
-                      <div className="universalTxt">rooms</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.area} Sq Ft
+                      </div>
                     </div>
                     <div className="rooms_inner">
                       <img src={calendar} alt="" />
-                      <div className="universalTxt">rooms</div>
+                      <div className="universalTxt">
+                        {" "}
+                        Year built: {data?.houseDetails?.yearBuilt}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -114,17 +132,21 @@ const View = () => {
                     <p className="lined">${data?.price || 0}/mo,</p>
                     <div className="priced">${data?.salePrice || 0}/mo</div>
                   </div>
-                  <div className="universalTxt mort">Est. Mortgage</div>
+                  <div className="universalTxt mort">
+                    {data?.user?.firstname}
+                  </div>
                 </div>
               </div>
-              <SmTxt>{data?.id}</SmTxt>
+              <SmTxt>Description</SmTxt>
               <div className="universalTxt">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+                {data?.description === "string"
+                  ? `Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
                 laudantium, iure iusto facilis iste corporis omnis cumque veniam
                 doloremque! Sit quas et ea cum totam officiis eveniet earum
-                excepturi ipsa?
+                excepturi ipsa?`
+                  : data?.description}
               </div>
-              <a href="" className="universalTxt">
+              <a href="download.me" className="universalTxt">
                 Show more
               </a>
               <SmTxt>Downloads</SmTxt>
@@ -132,7 +154,7 @@ const View = () => {
                 <div className="rooms_inner">
                   <img src={pdfDownload} alt="" />
                   <div className="universalTxt">test_property.pdf</div>
-                  <a href="" className="download">
+                  <a href="download.me" className="download">
                     {" "}
                     Download
                   </a>
@@ -140,7 +162,7 @@ const View = () => {
                 <div className="rooms_inner">
                   <img src={pdfDownload} alt="" />
                   <div className="universalTxt">test_property.pdf</div>
-                  <a href="" className="download">
+                  <a href="download.me" className="download">
                     {" "}
                     Download
                   </a>
@@ -148,7 +170,7 @@ const View = () => {
                 <div className="rooms_inner">
                   <img src={pdfDownload} alt="" />
                   <div className="universalTxt">test_property.pdf</div>
-                  <a href="" className="download">
+                  <a href="download.me" className="download">
                     {" "}
                     Download
                   </a>
@@ -160,31 +182,33 @@ const View = () => {
                   <div className="colum">
                     <div className="row">
                       <div className="names">Address:</div>
-                      <div className="universalTxt">329 Queensberry Street</div>
+                      <div className="universalTxt">{data?.address}</div>
                     </div>
                     <div className="row">
                       <div className="names">State/County:</div>
-                      <div className="universalTxt">Washington</div>
+                      <div className="universalTxt">{data?.city}</div>
                     </div>
                   </div>
                   <div className="colum">
                     <div className="row">
                       <div className="names">City:</div>
-                      <div className="universalTxt">Jersey</div>
+                      <div className="universalTxt">{data?.city}</div>
                     </div>
                     <div className="row">
                       <div className="names">Zip:</div>
-                      <div className="universalTxt">364448</div>
+                      <div className="universalTxt">
+                        {data?.zipCode === "string" ? 0 : data?.zipCode}
+                      </div>
                     </div>
                   </div>
                   <div className="colum">
                     <div className="row">
                       <div className="names">Area:</div>
-                      <div className="universalTxt">Queensberry</div>
+                      <div className="universalTxt">{data?.country}</div>
                     </div>
                     <div className="row">
                       <div className="names">Country:</div>
-                      <div className="universalTxt">Washington</div>
+                      <div className="universalTxt">{data?.country}</div>
                     </div>
                   </div>
                 </div>
@@ -196,48 +220,60 @@ const View = () => {
                 <div className="detaill">
                   <div className="colum">
                     <div className="row">
-                      <div className="names">Property ID::</div>
-                      <div className="universalTxt">329 Queensberry Street</div>
+                      <div className="names">Property ID:</div>
+                      <div className="universalTxt">{data?.id}</div>
                     </div>
                     <div className="row">
                       <div className="names">Price:</div>
-                      <div className="universalTxt">Washington</div>
+                      <div className="universalTxt">{data?.price}</div>
                     </div>
                     <div className="row">
-                      <div className="names">Property Size::</div>
-                      <div className="universalTxt">Washington</div>
+                      <div className="names">Property Size:</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.area}
+                      </div>
                     </div>
                     <div className="row">
                       <div className="names">Year built:</div>
-                      <div className="universalTxt">Washington</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.yearBuilt}
+                      </div>
                     </div>
                   </div>
                   <div className="colum">
                     <div className="row">
                       <div className="names">Bedrooms:</div>
-                      <div className="universalTxt">Jersey</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.bed}
+                      </div>
                     </div>
                     <div className="row">
                       <div className="names">Bathrooms:</div>
-                      <div className="universalTxt">364448</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.bath}
+                      </div>
                     </div>
                     <div className="row">
                       <div className="names">Garage:</div>
-                      <div className="universalTxt">364448</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.garage}
+                      </div>
                     </div>
                     <div className="row">
                       <div className="names">Garage size:</div>
-                      <div className="universalTxt">364448</div>
+                      <div className="universalTxt">
+                        {data?.houseDetails?.garage}
+                      </div>
                     </div>
                   </div>
                   <div className="colum">
                     <div className="row">
                       <div className="names">Property Type:</div>
-                      <div className="universalTxt">Queensberry</div>
+                      <div className="universalTxt">{data?.category?.name}</div>
                     </div>
                     <div className="row">
                       <div className="names">Property Status:</div>
-                      <div className="universalTxt">Washington</div>
+                      <div className="universalTxt">{data?.status} || 0</div>
                     </div>
                   </div>
                 </div>
@@ -355,23 +391,34 @@ const View = () => {
 
               <section className="bordererr">
                 <SmTxt>Schedule A Tour</SmTxt>
-                <div style={{display: "flex", gap: "20px"}}>
-                  <Inputs placeholder={"Date"} border/>
-                  <SelectAnt siza={"large"} bordered={false} name="" id="" value={"Time"}>
-            <SelectAnt.Option value=''>10.00</SelectAnt.Option>
-            <SelectAnt.Option value=''>11.00</SelectAnt.Option>
-            </SelectAnt>
+                <div style={{ display: "flex", gap: "20px" }}>
+                  <Inputs placeholder={"Date"} border />
+                  <SelectAnt
+                    siza={"large"}
+                    bordered={false}
+                    name=""
+                    id=""
+                    value={"Time"}
+                  >
+                    <SelectAnt.Option value="">10.00</SelectAnt.Option>
+                    <SelectAnt.Option value="">11.00</SelectAnt.Option>
+                  </SelectAnt>
                 </div>
                 <div className="schedule">Your Information</div>
-                <div style={{display: "flex", gap: "20px"}}>
-                <Inputs placeholder={"Name"} border/>
-                <Inputs placeholder={"Phone"} border/>
-                <Inputs placeholder={"Email"} border/>
+                <div style={{ display: "flex", gap: "20px" }}>
+                  <Inputs placeholder={"Name"} border />
+                  <Inputs placeholder={"Phone"} border />
+                  <Inputs placeholder={"Email"} border />
                 </div>
-                <div className="schedule"> 
-                <Inputs placeholder={"Enter Your Message"} border/>
+                <div className="schedule">
+                  <Inputs placeholder={"Enter Your Message"} border />
                 </div>
-                <Buttons txt={"Submit a tour request"} width={250} background={"#0061DF"} color={"white"}/>
+                <Buttons
+                  txt={"Submit a tour request"}
+                  width={250}
+                  background={"#0061DF"}
+                  color={"white"}
+                />
               </section>
               <section className="bordererr">
                 <SmTxt>4.67 (14 reviews)</SmTxt>
@@ -381,7 +428,30 @@ const View = () => {
                 </div>
               </section>
             </Container>
-            <div>Darrel Steward</div>
+            <Send>
+              <div className="userInfo">
+                <div className="avatarWr">
+                  <img className="avatarImg" src={avatar} alt="" />
+                </div>
+                <div>
+                  <div className="userName">Darrel Steward</div>
+                  <div className="universalTxt">+(123) 45 67</div>
+                </div>
+              </div>
+              <Inputs border={"none"} placeholder={"Name"} />
+              <Inputs border={"none"} placeholder={"Phone"} />
+              <Inputs border={"none"} placeholder={"Email"} />
+              <Inputs border={"none"} placeholder={"Message"} />
+              <Checkbox className="universalTxt center" onChange={onChange}>
+                By submitting this form I agree to Terms of Use
+              </Checkbox>
+              <Buttons
+                txt={"Send request"}
+                background={" #0061DF"}
+                width={232}
+                color={"white"}
+              />
+            </Send>
           </ContainerWr>
         </Wrapper>
         {/* data?.attachments[0].imgPath */}

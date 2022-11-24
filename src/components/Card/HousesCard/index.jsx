@@ -36,7 +36,7 @@ function HousesCard({data}) {
             <div className='info'>
                 <div className='infocat'>
                     <img className='imgsize'alt="" src={bed}/>
-                    <div className='txt'>Bed {houseDetails?.beds || 0} </div>
+                    <div className='txt'>Bed {houseDetails?.beds || 0}</div>
                 </div>
                 <div className='infocat'>
                     <img className='imgsize'alt="" src={bath}/>

@@ -17,6 +17,11 @@ transition: all 0.5s;
     border-bottom: ${({border})=>(border ? `2px solid #0061DF` : `1px solid #0061DF`)};
     outline: none;
 }
+:focus::placeholder{
+    color:red;
+    transform:scaleY(2)
+
+}
 `
 const Wrapper=styled.div`
 display: flex;

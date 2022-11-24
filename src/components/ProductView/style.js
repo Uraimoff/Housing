@@ -46,6 +46,22 @@ const ContainerWr =styled.div`
 display: flex;
 justify-content: space-between;
 `
+const Send =styled.div`
+margin-top: 24px;
+display: flex;
+width: 280px;
+height: 500px;
+border: 1px solid #E6E9EC;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 24px;
+padding: 20px;
+@media only screen and(max-width: 1024px) {
+  /* display: none !important; */
+  background: #000;
+}
+`
 const SmTxt=styled.div`
 font-family: 'Montserrat';
 font-style: normal;
@@ -55,4 +71,4 @@ line-height: 28px;
 margin-top: 50px;
 margin-bottom: 16px;
 `
-export {Wrapper, Section,Txt, Container, ContainerWr, SmTxt}
+export {Wrapper,Send, Section,Txt, Container, ContainerWr, SmTxt}

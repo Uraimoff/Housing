@@ -1,5 +1,5 @@
-import React from "react";
-import useId from "../hooks/useId";
+import React, { useId } from "react";
+// import useId from "../hooks/useId";
 import "./style.css"
 import loading from "./../assets/gif/loading.gif"
 import Contacts from "../pages/Contacts";
@@ -18,9 +18,12 @@ import ProductView from "./../pages/View";
 const Home = React.lazy(()=>import("./../pages/Home"));
 const Properties = React.lazy(()=>import("./../pages/Properties"));
 
-export const navbar = [
-  {
-    id: useId,
+// const Navbarf = ()=>{
+
+  // const uniqueId = useId()
+  export const navbar = [
+    {
+    // 
     element: <React.Suspense fallback={<React.Fragment><div className="load"><img src={loading} alt="" /></div></React.Fragment>}><Home /></React.Suspense>,
     title: "Home",
     path: "/home",
@@ -28,7 +31,7 @@ export const navbar = [
     hidden: false,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <React.Suspense fallback={<React.Fragment><div className="load"><img src={loading} alt="" /></div></React.Fragment>}><Properties /></React.Suspense>,
     title: "Properties",
     path: "/properties",
@@ -36,7 +39,7 @@ export const navbar = [
     hidden: false,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <Contacts />,
     title: "Contacts",
     path: "/contacts",
@@ -44,7 +47,7 @@ export const navbar = [
     hidden: false,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <SingIn />,
     title: "Sing in",
     path: "/signin",
@@ -52,7 +55,7 @@ export const navbar = [
     hidden: true,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <Register/>,
     title: "Register",
     path: "/register",
@@ -60,7 +63,7 @@ export const navbar = [
     hidden: true,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <MyProperty/>,
     title: "My property",
     path: "/my-property",
@@ -68,7 +71,7 @@ export const navbar = [
     hidden: true,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <AddNewProperty/>,
     title: "Add new propertyty",
     path: "/addnew",
@@ -76,7 +79,7 @@ export const navbar = [
     hidden: true,
   },
   {
-    id: useId,
+    // id: uniqueId,
     element: <Favorite/>,
     title: "Favorite",
     path: "/favorite",
@@ -84,7 +87,7 @@ export const navbar = [
     hidden: true,
   },
   {
-    id: useId,
+    // id: uniqueId,
     // element: <Properties/>,
     element: <ProductView/>,
     title: "Product view",
@@ -94,35 +97,44 @@ export const navbar = [
   },
 ];
 
-export const categorydata = [
+ export const categorydata = [
   {
+    
     img: category,
     icon: home,
     name: "House"
   },
   {
+    
     img: category,
     icon: apartment,
     name: "Apartment"
   },
   {
+    
     img: category,
     icon: office,
     name: "Office"
   },
   {
+    
     img: category,
     icon: villa,
     name: "Villa"
   },
   {
+    
     img: category,
     icon: home,
     name: "House"
   },
   {
+    
     img: category,
     icon: home,
     name: "House"
   },
 ];
+// }
+
+// export {Navbarf}

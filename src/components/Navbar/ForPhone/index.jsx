@@ -62,7 +62,7 @@ const NavbarForPhone = () => {
             <div className="container">
               <div className="pglink">
                 {navbar.map(
-                  (value, index) => !value.hidden && <Link className="Link" to={value.path} key={index} >{value.title}</Link>
+                  (value, index) => !value.hidden && <Link onClick={()=>handleClick()} className="Link" to={value.path} key={index} >{value.title}</Link>
                 )}
               </div>
               <div className="social-media-icon">
