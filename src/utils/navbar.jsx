@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React from "react";
 // import useId from "../hooks/useId";
 import "./style.css"
 import loading from "./../assets/gif/loading.gif"
