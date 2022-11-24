@@ -7,44 +7,58 @@ import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const navigate = useNavigate();
   const [body, setBody] = useState({});
-  const [error, setError] = useState(false);
+  const [errors, setError] = useState(false);
   const request = useRequest();
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
-  const onChanges = ({ target: { value, name }}) => {
+  const onChanges = ({ target: { value, name } }) => {
     setBody({
       ...body,
       [name]: value,
     });
-    setError(false)
+    setError(false);
   };
-  const info=()=>{
-    message.info("Success")
-  }
-  const warning=()=>{
-    message.warning("Success")
-  }
-  const onSubmit = async() => {
-    // request({ url: `/public/auth/login`, method: 'POST', body });
+  const info = () => {
+    message.info("Success");
+  };
+  const warning = () => {
+    message.warning(`Error password or email ${errors}`);
+  };
+  const onSubmit = async () => {
     try{
 
-        let res= await fetch('https://houzing-app.herokuapp.com/api/public/auth/login',{
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body)
-        }).then((res)=>res.json())
-            if(res?.authenticationToken) navigate(`/my-property`);
-                info()
-                localStorage.setItem('token', res?.authenticationToken)
-        } catch (error){
-            warning()
+      request({ me: true, url: `/public/auth/login`, method: "POST", body }).then(
+        (res) => {
+          // res.json();
+          if (res?.authenticationToken) {
+            navigate(`/my-property`);
+            localStorage.setItem("token", res?.authenticationToken);
+            info();
+          }
         }
-        
-            
-        
+        );
+      }catch (error){
+        warning()
+      }
+    // try{
+
+    //     let res= await fetch('https://houzing-app.herokuapp.com/api/public/auth/login',{
+    //         method: 'POST',
+    //         headers:{
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(body)
+    //     }).then((res)=>res.json())
+    //         if(res?.authenticationToken) {
+    //           navigate(`/my-property`);
+    //           localStorage.setItem('token', res?.authenticationToken)
+    //           info()
+    //         }
+    //     }  catch (error){
+    //         warning()
+    //     }
+
     // console.log(body);
   };
   return (

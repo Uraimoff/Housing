@@ -5,6 +5,7 @@ display: grid;
 grid-template-columns: auto auto auto;
 gap: 20px;
 width: 100%;
+margin-top: 100px;
 max-width: 1440px;
 min-width: 300px;
 @media only screen and (max-width: 768px) {
@@ -15,6 +16,7 @@ min-width: 300px;
     }
 `;
 const Wrapper = styled.div`
+/* padding-top: 100px; */
 max-width: 1440px;
 min-width: 300px;
     width: 100%;
@@ -24,5 +26,12 @@ min-width: 300px;
 const PAgina=styled.div`
 margin-top: 50px;
 `
+const ButtonsWrPr =styled.div`
+margin: 50px auto;
+display: flex;
+align-items: center;
+justify-content: center;
 
-export {Container, PAgina, Wrapper}
+`
+
+export {Container, PAgina, Wrapper, ButtonsWrPr}

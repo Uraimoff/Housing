@@ -117,7 +117,7 @@ const View = () => {
                   <div className="universalTxt mort">Est. Mortgage</div>
                 </div>
               </div>
-              <SmTxt>Description</SmTxt>
+              <SmTxt>{data?.id}</SmTxt>
               <div className="universalTxt">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
                 laudantium, iure iusto facilis iste corporis omnis cumque veniam

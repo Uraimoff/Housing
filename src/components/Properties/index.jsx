@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, Wrapper } from "./style";
+import { ButtonsWrPr, Container, Wrapper } from "./style";
 import { useEffect, useState } from "react" 
 import HousesCard from "./../Card/HousesCard";
 import { useLocation } from "react-router-dom";
 import Text from "../Carousel/Text";
+import { Buttons } from "../Generic";
 // import Pagination from "../Pagination";
 
 const Propertys = () => {
@@ -37,6 +38,9 @@ const Propertys = () => {
       <Pagination Pages={50}/>
 
       </PAgina> */}
+      <ButtonsWrPr>
+          <Buttons txt={"Show more"} background={"#0061DF"} width={250} color={"white"}/>
+      </ButtonsWrPr>
           </Wrapper>
     </>
   );
