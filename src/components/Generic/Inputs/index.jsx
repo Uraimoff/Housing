@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Icon, Iconic, Inpt, Wrapper } from "./style";
 import show from "./../../../assets/icons/svg/show.svg";
-
+import "./style.css"
 
 function Inputs({ width, height, border, placeholder, onChange,password, name, icon, defaultValue }) {
   const [view, setView] = useState(false)
@@ -15,23 +15,23 @@ function Inputs({ width, height, border, placeholder, onChange,password, name, i
       width: width ? `${width}px` : `100%`
     }}>
       <Icon src={icon}/>
-      <Inpt
+      <div className="input">
+      <div className="placemove">{placeholder}</div>
+      <Inpt 
       type={view ? "text" : password }
       icon={icon}
       border={border}
-        placeholder={placeholder}
-        onChange={onChange}
-        defaultValue={defaultValue}
-        name={name}
-        style={{
-          width: width ? `${width}px` : `100%`,
-          height: height ? `${height}px` : `44px`,
-          paddingLeft: icon ? `30px` : "15px",
-          // border: border ? `${border}` : `1px solid #E6E9EC`,
-          // borderBottom: border ? `2px solid #E6E9EC` : `2px solid #E6E9EC`,
-          
-        }}
-        />
+      placeholder={placeholder}
+      onChange={onChange}
+      defaultValue={defaultValue}
+      name={name}
+      style={{
+        width: width ? `${width}px` : `100%`,
+        height: height ? `${height}px` : `44px`,
+        paddingLeft: icon ? `30px` : "15px",
+      }}
+      />
+      </div>
         <Iconic onClick={()=>setView(!view)} style={{
           display: password ? "" : "none",  
         }} src={show}/>

@@ -9,7 +9,12 @@ const Favorites = () => {
 
   useEffect(() => {
     // params?.id &&
-      fetch(`${url}/houses/getAll/favouriteList`)
+      fetch(`${url}/houses/getAll/favouriteList`,{
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+        method: "GET"
+      })
         .then((res) => res.json())
         .then((res) => {
           setData(res?.data || {});
@@ -21,9 +26,13 @@ const Favorites = () => {
   return (
     <>
     <h1>
-        {data.map((value)=>(
+      Favorites
+        {data[0]?.id && data.map((value)=>(
         <HousesCard data={value}/>
         ))}
+        <div style={{display: "none"}}>
+        {/* <HousesCard/> */}
+        </div>
     </h1>
     </>
   )

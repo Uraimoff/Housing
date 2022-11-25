@@ -18,6 +18,7 @@ import pdfDownload from "./../../assets/icons/svg/pdfDownload.svg";
 import "./style.css";
 import { SelectAnt } from "../AddNewProperty/style.js";
 import { Checkbox } from "antd";
+import Yandex from "../Maps";
 
 const View = () => {
   const [data, setData] = useState({});
@@ -212,7 +213,7 @@ const View = () => {
                     </div>
                   </div>
                 </div>
-                <h1>Map</h1>
+                <h1><Yandex/></h1>
               </div>
 
               <section className="bordererr">
@@ -244,7 +245,7 @@ const View = () => {
                     <div className="row">
                       <div className="names">Bedrooms:</div>
                       <div className="universalTxt">
-                        {data?.houseDetails?.bed}
+                        {data?.houseDetails?.beds}
                       </div>
                     </div>
                     <div className="row">
@@ -273,7 +274,7 @@ const View = () => {
                     </div>
                     <div className="row">
                       <div className="names">Property Status:</div>
-                      <div className="universalTxt">{data?.status} || 0</div>
+                      <div className="universalTxt">{`${data?.status}` || 0}</div>
                     </div>
                   </div>
                 </div>
@@ -434,8 +435,8 @@ const View = () => {
                   <img className="avatarImg" src={avatar} alt="" />
                 </div>
                 <div>
-                  <div className="userName">Darrel Steward</div>
-                  <div className="universalTxt">+(123) 45 67</div>
+                  <div className="userName">Ibrohim Uraimov</div>
+                  <div className="universalTxt">+998 93 402 5776</div>
                 </div>
               </div>
               <Inputs border={"none"} placeholder={"Name"} />

@@ -9,6 +9,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 20px;
+z-index: 888;
 border: ${({border})=>(border ? `none` : `1px solid #E6E9EC`)};
 border-bottom: ${({border})=>(border && `2px solid #E6E9EC`)};
 transition: all 0.5s;
@@ -17,9 +18,24 @@ transition: all 0.5s;
     border-bottom: ${({border})=>(border ? `2px solid #0061DF` : `1px solid #0061DF`)};
     outline: none;
 }
+::placeholder{
+    transition: all 0.7s;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    padding-left: ${({icon})=>(icon ? `30px` : `15px`)};
+    /* z-index: 999; */
+    display:flex;
+}
 :focus::placeholder{
     color:red;
-    /* transform:scaleY(2) */
+    transition: all 0.7s;
+    position: absolute;
+    top: 0px;
+    left: ${({icon})=>(icon ? `-30px` : `0px`)};
+    /* left: -30px; */
+    transform: scale(0.7);
+    display: none;
 }
 `
 const Wrapper=styled.div`

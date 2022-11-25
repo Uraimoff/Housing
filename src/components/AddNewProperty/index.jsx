@@ -5,6 +5,7 @@ import { Checkbox } from "antd";
 import { Ctg, Cubes, IMG, InputWr, SelectAnt, SvBtn, Wrap } from "./style";
 import noImage from "./../../assets/img/noImage.webp"
 import "./style.css"
+import Yandex from "../Maps";
 
 const AddNewProperties = () => {
   const onChange = (e) => {
@@ -76,7 +77,7 @@ const AddNewProperties = () => {
             <Inputs  border={"none"} placeholder={"Friendly address"} />
           </div>
           <Inputs border={"none"} placeholder={"Map location"} />
-          <h1>Map</h1>
+          <h1 className="mapWr"><Yandex/></h1>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
             <Inputs border={"none"} placeholder={"Latidude"} />
             <Inputs border={"none"} placeholder={"Longitude"} />

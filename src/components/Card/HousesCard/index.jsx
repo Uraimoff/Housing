@@ -14,14 +14,14 @@ import { useNavigate } from 'react-router-dom'
 
 
 function HousesCard({data}) {
-    const {attachments, id, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data
+    const {attachments, id, avatar, address, houseDetails, salePrice, price, city, country, description, category} = data 
     const navigate = useNavigate()
   return (
     <>
     <div key={id} onClick={()=>navigate(`/view/${id}`)}>
     <Container >
         <div className='houseWrapper'>
-        <img className='HouseImg' src={attachments[0]?.imgPath === "string" ? noImage : attachments[0]?.imgPath} alt="" />
+        <img className='HouseImg' src={attachments[0]?.imgPath === "string" || attachments[0]?.imgPath===false ? noImage : attachments[0]?.imgPath } alt="" />
         </div>
         <div className='relative'>
             <div className='avatar'>
