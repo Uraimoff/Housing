@@ -1,5 +1,5 @@
 import React from 'react'
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import { YMaps, Map } from "@pbe/react-yandex-maps";
 
 const Yandex = () => {
   const mapStyle={
