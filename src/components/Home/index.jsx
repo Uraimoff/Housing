@@ -29,7 +29,7 @@ function Homec() {
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || []);
-        // console.log(res);
+        // console.log(data, "House");
       });
   }, [url]);
   console.log(data, "houses");
@@ -38,7 +38,7 @@ function Homec() {
       .then((res) => res.json())
       .then((res) => {
         setDatas(res?.data || []);
-        console.log(res);
+        // console.log(res);
       });
   }, [url]);
   console.log(datas, "category");

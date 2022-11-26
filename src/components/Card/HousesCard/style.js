@@ -15,5 +15,21 @@ transition: 0.9s;
     z-index: 999;
 }
 `
+const LikeWrapper =styled.div`
+background-color: ${({favorite})=> (favorite ? `#CC5040` : `#F6F8F9`)};
+    padding: 10px;
+    border-radius: 50%;
+    opacity: 0.7;
+    size: 35px;
+    line-height: 0;
+    :hover{
+        opacity: 1;
+    }
+`
+const LikeImg= styled.img`
+    & path{
+        fill: ${({favorite})=>(favorite ? `` : '')};
+    }
+`
 
-export {Container}
+export {Container, LikeWrapper, LikeImg}

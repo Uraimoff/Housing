@@ -11,6 +11,10 @@ import Up from "./../../assets/icons/svg/up.svg";
 
 const Footer = () => {
   const navigate = useNavigate();
+  
+  const scrol = ()=>{
+    document.documentElement.scrollTop = 0
+  }
 
   return (
     <>
@@ -79,8 +83,8 @@ const Footer = () => {
             <H3>Houzing</H3>
           </Section>
             <Footdiv>Copyright © 2021 CreativeLayers. All Right Reserved.</Footdiv>
-            <Scrolltop>
-                <img src={Up} alt="" />
+            <Scrolltop onClick={()=>scrol()}>
+                <img onClick={()=>scrol()} src={Up} alt="" />
             </Scrolltop>
         </MostFoot>
     </Container>

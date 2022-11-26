@@ -36,9 +36,10 @@ const View = () => {
   }, [url, params?.id]);
 
   const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
+    // console.log(`checked = ${e.target.checked}`);
   };
-  console.log(data, "params data");
+  // console.log(data, "params data");
+  // console.log(data?.location, "location")
   return (
     <>
       <Section>
@@ -213,7 +214,7 @@ const View = () => {
                     </div>
                   </div>
                 </div>
-                <h1><Yandex/></h1>
+                <h1><Yandex longitude={data?.location?.longitude} latitude={data?.location?.latitude}/></h1>
               </div>
 
               <section className="bordererr">

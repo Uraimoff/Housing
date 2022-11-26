@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import HousesCard from '../Card/HousesCard'
+import Text from '../Carousel/Text';
+import { Container, Wrapper } from '../Properties/style';
 
 const Favorites = () => {
   const [data, setData] = useState({});
@@ -25,15 +27,24 @@ const Favorites = () => {
   console.log(data, "params data");
   return (
     <>
-    <h1>
-      Favorites
-        {data[0]?.id && data.map((value)=>(
-        <HousesCard data={value}/>
-        ))}
+    
+    <Text
+          theme={"Favorite"}
+          txt={
+            "Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."
+          }
+        />
+        <Wrapper>
+        <Container>
+        {data.length ? data.map((value)=>(
+          <HousesCard key={value.id} data={value}/>
+          )) :<h1>No data found</h1>}
         <div style={{display: "none"}}>
         {/* <HousesCard/> */}
         </div>
-    </h1>
+          </Container>
+          </Wrapper>
+    
     </>
   )
 }

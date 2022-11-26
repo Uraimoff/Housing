@@ -111,5 +111,26 @@ display: none;
     margin-left: 100px;
 }
 `
+const DropdownWr= styled.div`
+padding: 16px;
+display: flex;
+flex-direction: column;
+gap: 16px;
+background-color: white;
+/* border-radius: 2px; */
+box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06), 0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
+`
+const DropdownMenu =styled.div`
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+:hover{
+    background-color: #fff;
+    color: #0061DF;
+    cursor: pointer;
+}
+`
 
-export {Container,Wrapper, Section, Logo, Link, H3, Main, Main2, Nav, PhoneNavbar, LoginButton, LoginIcon}
+export {Container,Wrapper,DropdownWr, DropdownMenu, Section, Logo, Link, H3, Main, Main2, Nav, PhoneNavbar, LoginButton, LoginIcon}
