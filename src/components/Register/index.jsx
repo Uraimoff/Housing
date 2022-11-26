@@ -1,49 +1,84 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Forgot } from './style';
 import {Buttons, Inputs} from "./../Generic"
 // import { Checkbox } from 'antd';
 import { Container, Input, Sign, Wrapper } from './style';
+import { message } from 'antd';
+import useRequest from '../../hooks/useRequest';
 const Register = () => {
     const navigate = useNavigate()
+    const [body, setBody] = useState({});
+  const request = useRequest();
+
+    const [errors, setError] = useState(false);
+    const onChanges = ({ target: { value, name } }) => {
+        setBody({
+          ...body,
+          [name]: value,
+        });
+        setError(false);
+      };
+      const info = () => {
+        message.info("Success");
+      };
+      const warning = () => {
+        message.warning(`Error password or email ${errors}`);
+      };
+      const onSubmit = async () => {
+        try{
+    
+          request({ me: true, url: `/public/auth/register`, method: "POST", body }).then(
+            (res) => {
+              if (res?.authenticationToken) {
+                navigate(`/my-property`);
+                localStorage.setItem("token", res?.authenticationToken);
+                info();
+              }
+            }
+            );
+          }catch (error){
+            warning()
+          }
+      };
   return (
     <>
     <Container>
         <Wrapper>
         <Sign>Registration</Sign>
         <Input>
-            <Inputs border placeholder={"Login"}/>
+            <Inputs onChange={onChanges}
+              name={"email"} border placeholder={"Login"}/>
         </Input>
         <Input>
-            <Inputs border placeholder={"First name"}/>
+            <Inputs onChange={onChanges}
+              name={"firstname"} border placeholder={"First name"}/>
         </Input>
         <Input>
-            <Inputs border placeholder={"Last name"}/>
+            <Inputs onChange={onChanges}
+              name={"lastname"} border placeholder={"Last name"}/>
         </Input>
         <Input>
-            <Inputs border placeholder={"Email"}/>
+            <Inputs onChange={onChanges}
+              name={"email"} border placeholder={"Email"}/>
         </Input>
         <Input>
             <Inputs border  placeholder={"User role"}/>
         </Input>
         <Input>
-            <Inputs border password={"password"} placeholder={"Password"}/>
+            <Inputs onChange={onChanges}
+              name={"password"} border password={"password"} placeholder={"Password"}/>
         </Input>
         <Input>
-            <Inputs border password={"password"} placeholder={"Re-enter password"}/>
+            <Inputs onChange={onChanges}
+              name={"password"} border password={"password"} placeholder={"Re-enter password"}/>
         </Input>
         <div>
         <Forgot onClick={()=>navigate('/signin')}>
                     Already have account
                 </Forgot>
-            {/* <RemFor>
-                <Checkbox onChange={onChange}>Remember me</Checkbox>
-                <Forgot href="!#">
-                    Forgot password
-                </Forgot>
-            </RemFor> */}
         </div>
-        <Buttons txt={"Register"} width={520} background={"#0061DF"} color={"white"}/>
+        <Buttons txt={"Register"} onClick={onSubmit} width={520} background={"#0061DF"} color={"white"}/>
         </Wrapper>
     </Container>
     </>

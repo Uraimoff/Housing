@@ -12,8 +12,8 @@ const EditCard = () => {
         <div className="headwrapper">
         <div className="imgWrapper">
           <img src={house || noImage} alt="" />
-          <div className="Salelight">FEATURED</div>
-          <div className="Sale">FOR SALE</div>
+          <div className="Sallelight">FEATURED</div>
+          <div className="Salle">FOR SALE</div>
         </div>
         <div>
 

@@ -30,7 +30,6 @@ const SignIn = () => {
 
       request({ me: true, url: `/public/auth/login`, method: "POST", body }).then(
         (res) => {
-          // res.json();
           if (res?.authenticationToken) {
             navigate(`/my-property`);
             localStorage.setItem("token", res?.authenticationToken);
@@ -41,25 +40,6 @@ const SignIn = () => {
       }catch (error){
         warning()
       }
-    // try{
-
-    //     let res= await fetch('https://houzing-app.herokuapp.com/api/public/auth/login',{
-    //         method: 'POST',
-    //         headers:{
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(body)
-    //     }).then((res)=>res.json())
-    //         if(res?.authenticationToken) {
-    //           navigate(`/my-property`);
-    //           localStorage.setItem('token', res?.authenticationToken)
-    //           info()
-    //         }
-    //     }  catch (error){
-    //         warning()
-    //     }
-
-    // console.log(body);
   };
   return (
     <>
@@ -88,7 +68,7 @@ const SignIn = () => {
             <RemFor>
               <Checkbox onChange={onChange}>Remember me</Checkbox>
               <Forgot onClick={() => navigate("/register")}>
-                Forgot password
+                Registration
               </Forgot>
             </RemFor>
           </div>

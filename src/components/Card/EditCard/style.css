@@ -15,7 +15,7 @@
 .imgWrapper img {
   height: 100%;
 }
-.Salelight {
+.Sallelight {
   background-color: var(--backgroundPrimary);
   color: white;
   border-radius: 3px;
@@ -28,7 +28,7 @@
   top: 0;
   left: 4px;
 }
-.Sale {
+.Salle {
   background-color: var(--colorPrimary);
   color: white;
   border-radius: 3px;

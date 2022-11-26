@@ -15,12 +15,14 @@ export const useRequest = () => {
     const options={
       method,
       headers: { ...headers, 'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        // vaqtincha shu malumotla orqali login qilinadi keinroq body qoyib ketiladi "iwladi"
-        // temporary data in order to know is login works or not, later insted use body 
-        email: "xasanabdurazakov_100@mail.ru",
-        password: "Ss20010806"
-      })
+      body: JSON.stringify(body
+      //   {
+      //   // vaqtincha shu malumotla orqali login qilinadi keinroq body qoyib ketiladi "iwladi"
+      //   // temporary data in order to know is login works or not, later insted use body 
+      //   email: "xasanabdurazakov_100@mail.ru",
+      //   password: "Ss20010806"
+      // }
+      )
     }
 
     try{
