@@ -22,6 +22,10 @@ min-width: 300px;
     width: 100%;
     padding: var(--padding);
     margin: auto;
+    @media only screen and (max-width: 768px) {
+        padding: 0 !important;
+        margin: auto  !important;;
+    }
     `
 const PAgina=styled.div`
 margin-top: 50px;

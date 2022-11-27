@@ -6,6 +6,7 @@ background-color: var(--colorPrimary);
 `
 
 const FootTxt=styled.div`
+padding-left: 16px;
 font-family: 'Montserrat';
 font-style: normal;
 font-weight: 600;
@@ -38,9 +39,13 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #FFFFFF;
+padding-left: 16px;
+
 margin: 20px 0;
 `
 const Footdivv=styled.div`
+padding-left: 16px;
+
 font-family: 'Montserrat';
 width: 256px;
 font-style: normal;

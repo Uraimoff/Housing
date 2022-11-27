@@ -23,17 +23,19 @@ const Register = () => {
         message.info("Success");
       };
       const warning = () => {
-        message.warning(`Error password or email ${errors}`);
+        message.warning(`Something went wrong !! ${errors}`);
       };
       const onSubmit = async () => {
         try{
     
           request({ me: true, url: `/public/auth/register`, method: "POST", body }).then(
             (res) => {
-              if (res?.authenticationToken) {
+                console.log(res, "resni malumoti");
+              if (res?.success===true) {
                 navigate(`/my-property`);
-                localStorage.setItem("token", res?.authenticationToken);
                 info();
+              }else{
+                warning()
               }
             }
             );
@@ -63,7 +65,7 @@ const Register = () => {
               name={"email"} border placeholder={"Email"}/>
         </Input>
         <Input>
-            <Inputs border  placeholder={"User role"}/>
+            <Inputs border defaultValue={"dont write if you are only client"}  placeholder={"User role"}/>
         </Input>
         <Input>
             <Inputs onChange={onChanges}

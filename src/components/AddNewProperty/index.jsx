@@ -1,16 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Buttons, Inputs } from "../Generic";
 import { Block, Head, Partss, Section } from "../MyProperty/style";
-import { Checkbox } from "antd";
+import { Checkbox, message } from "antd";
 import { Ctg, Cubes, IMG, InputWr, SelectAnt, SvBtn, Wrap } from "./style";
 import noImage from "./../../assets/img/noImage.webp"
 import "./style.css"
 import Yandex from "../Maps";
+import useRequest from "../../hooks/useRequest";
+import { useNavigate } from "react-router-dom";
 
 const AddNewProperties = () => {
+  const navigate = useNavigate();
+  const [body, setBody] = useState({});
+  const [errors, setError] = useState(false);
+  const request = useRequest();
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
+  const onChanges = ({ target: { value, name } }) => {
+    setBody({
+      ...body,
+      [name]: value,
+    });
+    setError(false);
+  }
+    const info = () => {
+      message.info("Successfully added");
+    };
+    const warning = () => {
+      message.warning(`Something went wrong`);
+    };
+
+    const onSubmit = async () => {
+      try{
+  
+        request({ me: true, url: `/houses`, method: "POST", body }).then(
+          (res) => {
+            if (res?.authenticationToken) {
+              navigate(`/my-property`);
+              localStorage.setItem("token", res?.authenticationToken);
+              info();
+            }
+          }
+          );
+        }catch (error){
+          warning()
+        }
+    };
+  
   return (
     <>
       <Section>
@@ -18,16 +55,16 @@ const AddNewProperties = () => {
         <Block>
           <Partss>Contact information</Partss>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
-            <Inputs border={"none"} placeholder={"Property title*"} />
-            <Inputs border={"none"} placeholder={"Type*"} />
+            <Inputs onChange={onChanges} name={"name"} border={"none"} placeholder={"Property title*"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Type*"} />
           </div>
-          <Inputs border={"none"} placeholder={"Property Description*"} />
+          <Inputs onChange={onChanges} name={"description"} border={"none"} placeholder={"Property Description*"} />
         </Block>
 
         <Block>
           <Partss>Additional</Partss>
           <InputWr>
-            <Inputs border={"none"} placeholder={"Property ID"} />
+            <Inputs onChange={onChanges} name={"zipCode"} border={"none"} placeholder={"Property ID"} />
             <SelectAnt siza={"large"} bordered={false} name="" id="" value={"Parent property"}>
             <SelectAnt.Option value=''>O'suvchi</SelectAnt.Option>
             <SelectAnt.Option value=''>Kamayuvchi</SelectAnt.Option>
@@ -38,32 +75,32 @@ const AddNewProperties = () => {
             </SelectAnt>
           </InputWr>
           <InputWr>
-            <Inputs border={"none"} placeholder={"Label"} />
-            <Inputs border={"none"} placeholder={"Material"} />
-            <Inputs border={"none"} placeholder={"Rooms"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Label"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Material"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Rooms"} />
           </InputWr>
           <InputWr>
-            <Inputs border={"none"} placeholder={"Beds"} />
-            <Inputs border={"none"} placeholder={"Baths"} />
-            <Inputs border={"none"} placeholder={"Garages"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Beds"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Baths"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Garages"} />
           </InputWr>
           <InputWr >
-            <Inputs border={"none"} placeholder={"Year build"} />
-            <Inputs border={"none"} placeholder={"Home area (sqft)"} />
-            <Inputs border={"none"} placeholder={"Lot dimensions"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Year build"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Home area (sqft)"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Lot dimensions"} />
           </InputWr>
-          <Inputs border={"none"} placeholder={"Lot area (sqft)"} width={360} />
+          <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Lot area (sqft)"} width={360} />
         </Block>
 
         <Block>
           <Partss>Price</Partss>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
-            <Inputs border={"none"} placeholder={"Price ($)"} />
-            <Inputs border={"none"} placeholder={"Price Prefix"} />
+            <Inputs onChange={onChanges} name={"price"} border={"none"} placeholder={"Price ($)"} />
+            <Inputs onChange={onChanges} name={"salePrice"} border={"none"} placeholder={"Price Prefix"} />
           </div>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
-            <Inputs border={"none"} placeholder={"Price Suffix"} />
-            <Inputs border={"none"} placeholder={"Price Custom"} />
+            <Inputs  border={"none"} placeholder={"Price Suffix"} />
+            <Inputs  border={"none"} placeholder={"Price Custom"} />
           </div>
         </Block>
 
@@ -74,13 +111,13 @@ const AddNewProperties = () => {
             <SelectAnt.Option value=''>O'suvchi</SelectAnt.Option>
             <SelectAnt.Option value=''>Kamayuvchi</SelectAnt.Option>
             </SelectAnt>
-            <Inputs  border={"none"} placeholder={"Friendly address"} />
+            <Inputs onChange={onChanges} name={"address"} border={"none"} placeholder={"Friendly address"} />
           </div>
-          <Inputs border={"none"} placeholder={"Map location"} />
+          <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Map location"} />
           <h1 className="mapWr"><Yandex/></h1>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
-            <Inputs border={"none"} placeholder={"Latidude"} />
-            <Inputs border={"none"} placeholder={"Longitude"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Latidude"} />
+            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Longitude"} />
           </div>
         </Block>
 
@@ -124,7 +161,7 @@ const AddNewProperties = () => {
           <Inputs border={"none"} placeholder={"Video link"} />
           </div>
           <div style={{padding: "20px 0 20px 0"}}>
-          <Inputs border={"none"} placeholder={"Virtual tour"} />
+          <Inputs  border={"none"} placeholder={"Virtual tour"} />
           </div>
         </Block>
 
@@ -189,12 +226,12 @@ const AddNewProperties = () => {
         <Block>
           <Partss>Select Energy Class</Partss>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
-            <Inputs border={"none"} placeholder={"Energy class"} />
-            <Inputs border={"none"} placeholder={"Energy Index in kWh/m2a"} />
+            <Inputs  border={"none"} placeholder={"Energy class"} />
+            <Inputs  border={"none"} placeholder={"Energy Index in kWh/m2a"} />
           </div>
         </Block>
         <SvBtn>
-          <Buttons txt={"Save"} background={"#0061DF"} color={"white"} width={280}/>
+          <Buttons onClick={onSubmit} txt={"Save"} background={"#0061DF"} color={"white"} width={280}/>
         </SvBtn>
       </Section>
     </>

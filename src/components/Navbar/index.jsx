@@ -42,8 +42,8 @@ function Navbar() {
     }
   };
   const menu = () => (<DropdownWr>
-    <DropdownMenu data-name="profile" onClick={onClickProfile}>My profile</DropdownMenu>
     <DropdownMenu data-name="my-property" onClick={onClickProfile}>My properties</DropdownMenu>
+    <DropdownMenu data-name="addnew" onClick={onClickProfile}>Add property</DropdownMenu>
     <DropdownMenu data-name="favorite" onClick={onClickProfile}>Favourites</DropdownMenu>
     <DropdownMenu data-name="logout" onClick={onClickProfile}>Log out</DropdownMenu>
   </DropdownWr>);

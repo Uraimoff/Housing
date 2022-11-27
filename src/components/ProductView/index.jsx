@@ -432,8 +432,8 @@ const View = () => {
             </Container>
             <Send>
               <div className="userInfo">
-                <div className="avatarWr">
-                  <img className="avatarImg" src={avatar} alt="" />
+                <div className="aavatarWr">
+                  <img className="aavatarImg" src={avatar} alt="" />
                 </div>
                 <div>
                   <div className="userName">Ibrohim Uraimov</div>

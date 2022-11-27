@@ -168,7 +168,7 @@ font-size: 16px;
 line-height: 24px;
 margin: 24px 0;
 }
-.avatarWr{
+.aavatarWr{
     /* position: absolute;
     top: -20px; */
     /* right: 0px; */
@@ -183,7 +183,7 @@ margin: 24px 0;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(13, 38, 59, 0.2);
 }
-.avatarImg{
+.aavatarImg{
     height: 100%;
 }
 .center{
