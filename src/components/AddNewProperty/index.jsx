@@ -28,7 +28,7 @@ const AddNewProperties = () => {
       message.info("Successfully added");
     };
     const warning = () => {
-      message.warning(`Something went wrong`);
+      message.warning(`Something went wrong ${errors}`);
     };
 
     const onSubmit = async () => {
