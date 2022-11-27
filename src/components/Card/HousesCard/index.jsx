@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./style.css";
 // import House from "./../../assets/img/PHouse1.jpg"
 import avatarL from "./../../../assets/img/avatar.jpg";
@@ -12,10 +12,10 @@ import noImage from "./../../../assets/img/noImage.webp";
 import { Container, LikeImg, LikeWrapper } from "./style";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
-import { PropertiesContext } from "../../../context/Properties";
+// import { PropertiesContext } from "../../../context/Properties";
 
 function HousesCard({ data }) {
-    const state = useContext(PropertiesContext);
+    // const state = useContext(PropertiesContext);
   const {
     attachments,
     id,
@@ -46,9 +46,10 @@ function HousesCard({ data }) {
     )
       .then((res) => res.json())
       .then((res) => {
+        // console.log(res, "liked");
         if (favorite) res?.success && message.warning("Successfully disliked");
         else res?.success && message.info("Successfully liked");
-        state.refetch && state.refetch();
+        // state.refetch && state.refetch();
       });
   };
   return (

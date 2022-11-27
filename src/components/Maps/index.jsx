@@ -16,8 +16,8 @@ const Yandex = ({longitude, latitude}) => {
         enterprise
         query={{ apikey: "afbb60c1-0761-48a5-b821-b566bf220d8b", lang: "EN" }}
       >
-        <Map style={mapStyle} state={{ center: [longitude, latitude] || [41.310629, 69.278123], zoom: 12 }}>
-          <Placemark geometry={[longitude, latitude] || [41.310629, 69.278123]} />
+        <Map style={mapStyle} state={{ center: [latitude, longitude] || [41.310629, 69.278123], zoom: 12 }}>
+          <Placemark geometry={[latitude, longitude] || [41.310629, 69.278123]} />
           <GeolocationControl options={{ float: "right" }} />
           <RouteButton options={{ float: "left" }} />
           <FullscreenControl />

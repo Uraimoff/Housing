@@ -22,8 +22,10 @@ const AddNewProperties = () => {
       ...body,
       [name]: value,
     });
+    
     setError(false);
   }
+    
     const info = () => {
       message.info("Successfully added");
     };
@@ -33,12 +35,14 @@ const AddNewProperties = () => {
 
     const onSubmit = async () => {
       try{
-  
-        request({ me: true, url: `/houses`, method: "POST", body }).then(
+        request({ url:`/houses`, headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }, method: "POST", body }).then(
           (res) => {
+            console.log(res, "post property")
             if (res?.authenticationToken) {
               navigate(`/my-property`);
-              localStorage.setItem("token", res?.authenticationToken);
+              localStorage.getItem("token", res?.authenticationToken);
               info();
             }
           }
@@ -51,7 +55,7 @@ const AddNewProperties = () => {
   return (
     <>
       <Section>
-        <Head>My properties</Head>
+        <Head>Add new property</Head>
         <Block>
           <Partss>Contact information</Partss>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
@@ -114,10 +118,10 @@ const AddNewProperties = () => {
             <Inputs onChange={onChanges} name={"address"} border={"none"} placeholder={"Friendly address"} />
           </div>
           <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Map location"} />
-          <h1 className="mapWr"><Yandex/></h1>
+          <h1 className="mapWr"><Yandex longitude={body.longitude} latitude={body.latitude}/></h1>
           <div style={{ display: "flex", gap: "20px", margin: "50px 0" }}>
-            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Latidude"} />
-            <Inputs onChange={onChanges} name={"categoryId"} border={"none"} placeholder={"Longitude"} />
+            <Inputs onChange={onChanges} name={"latitude"} border={"none"} placeholder={"Latidude"} />
+            <Inputs onChange={onChanges} name={"longitude"} border={"none"} placeholder={"Longitude"} />
           </div>
         </Block>
 
