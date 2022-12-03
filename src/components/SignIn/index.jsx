@@ -42,6 +42,7 @@ const SignIn = () => {
         );
       }catch (error){
         // warning()
+        console.log(errors)
       message.warning('Something went wrong')
 
       }
