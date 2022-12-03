@@ -34,11 +34,16 @@ const SignIn = () => {
             navigate(`/my-property`);
             localStorage.setItem("token", res?.authenticationToken);
             info();
+          }else{
+      message.warning('Something went wrong')
+
           }
         }
         );
       }catch (error){
-        warning()
+        // warning()
+      message.warning('Something went wrong')
+
       }
   };
   return (

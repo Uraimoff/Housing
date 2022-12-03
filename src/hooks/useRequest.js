@@ -4,8 +4,8 @@ const { REACT_APP_BASE_URL } = process.env;
 
 export const useRequest = () => {
     // const navigate = useNavigate()
-    const warning=(error)=>{
-      message.warning(error||'Something went wrong')
+    const warning=()=>{
+      message.warning('Something went wrong')
     }
 
   const request = async({me, url, method = "GET", body = {}, token, headers = {},}) => {
@@ -29,7 +29,9 @@ export const useRequest = () => {
       let res = await fetch(`${me?'https://houzing-app.herokuapp.com/api':REACT_APP_BASE_URL}${url}`, options).then((res)=>res.json())
       return res
     } catch (error){
-      warning(error)
+      // warning(error.status)
+      message.warning('Something went wrong')
+      console.log(error.status, "bu error rrequest");
       return warning(error)
     }
   };
