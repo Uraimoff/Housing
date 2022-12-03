@@ -22,9 +22,9 @@ const SignIn = () => {
   const info = () => {
     message.info("Success");
   };
-  const warning = () => {
-    message.warning(`Error password or email ${errors}`);
-  };
+  // const warning = () => {
+  //   message.warning(`Error password or email ${errors}`);
+  // };
   const onSubmit = async () => {
     try{
 
