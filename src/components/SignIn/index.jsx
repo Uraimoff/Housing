@@ -26,26 +26,26 @@ const SignIn = () => {
   //   message.warning(`Error password or email ${errors}`);
   // };
   const onSubmit = async () => {
-    try{
-
-      request({ me: true, url: `/public/auth/login`, method: "POST", body }).then(
-        (res) => {
-          if (res?.authenticationToken) {
-            navigate(`/my-property`);
-            localStorage.setItem("token", res?.authenticationToken);
-            info();
-          }else{
-      message.warning('Something went wrong')
-
-          }
+    try {
+      request({
+        me: true,
+        url: `/public/auth/login`,
+        method: "POST",
+        body,
+      }).then((res) => {
+        if (res?.authenticationToken) {
+          navigate(`/my-property`);
+          localStorage.setItem("token", res?.authenticationToken);
+          info();
+        } else {
+          message.warning("Something went wrong");
         }
-        );
-      }catch (error){
-        // warning()
-        console.log(errors)
-      message.warning('Something went wrong')
-
-      }
+      });
+    } catch (error) {
+      // warning()
+      console.log(errors);
+      message.warning("Something went wrong");
+    }
   };
   return (
     <>

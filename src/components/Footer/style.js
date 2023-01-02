@@ -12,7 +12,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 16px;
 line-height: 24px;
-color: white ;
+color: white;
 div{
     font-family: 'Montserrat';
 font-style: normal;
